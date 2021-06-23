@@ -1,0 +1,104 @@
+// vars
+$mainFontSize: 16px;
+$red: #FF2020;
+$grey: #777;
+$blue: #0b1c39;
+
+
+// functions
+@function rem($pixels, $context: $mainFontSize) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1rem;
+}
+
+
+// mixins
+
+@mixin size($width,$height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin hoverLinkRed {
+  a {
+    transition: all .3s ease-out 0s;
+  }
+  &:hover {
+    a {
+      color: $red;
+      transition: all .3s ease-out 0s;
+    }
+  }
+}
+
+@mixin hoverScale {
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(1, 10, 28, 0.3);
+    opacity: 0;
+    z-index: 1;
+    transition: all .4s ease-out 0s;
+  }
+  div {
+    transform: scale(1.2);
+    transition: all .4s ease-out 0s;
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+    background-repeat: no-repeat;
+  }
+
+  &:hover {
+    &::before {
+      visibility: visible;
+      opacity: 1;
+    }
+    div {
+      transform: scale(1);
+      transition: all .4s ease-out 0s;
+    }
+  }
+}
+
+@mixin buttonHover($buttonColor, $hoverColor) {
+  position: relative;
+  padding: rem(15) rem(30);
+  margin: 0;
+  background: $buttonColor;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  span {
+    position: relative;
+    z-index: 2;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: $hoverColor;
+    z-index: 1;
+    transition: width 0.5s;
+    transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+  }
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import '../../../assets/styles/mixinsAndVariables';
+
+.gallery {
+  display: grid;
+  grid-template-columns: 25%;
+  grid-gap: rem(30);
+  grid-template-areas: 'first first second third' 'first first second fourth';
+  margin-bottom: rem(100);
+}
+
+.imgWrapper {
+  @include hoverScale;
+
+  &:nth-child(1) {
+    grid-area: first;
+    .item {
+      background-image: url('../../../assets/img/gallery-1.jpg');
+    }
+  }
+  &:nth-child(2) {
+    grid-area: second;
+    .item {
+      background-image: url('../../../assets/img/gallery-2.jpg');
+    }
+  }
+  &:nth-child(3) {
+    grid-area: third;
+    .item {
+      background-image: url('../../../assets/img/gallery-3.jpg');
+    }
+  }
+  &:nth-child(4) {
+    grid-area: fourth;
+    .item {
+      background-image: url('../../../assets/img/gallery-4.jpg');
+    }
+  }
+}

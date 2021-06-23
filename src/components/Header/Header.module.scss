@@ -1,0 +1,53 @@
+@import '../../assets/styles/mixinsAndVariables';
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  font-size: rem(30);
+  span {
+    font-family: 'Magneto', sans-serif;
+    &:nth-child(2) {
+      color: $red;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  margin: 0 rem(30);
+  li {
+    margin: 0 rem(30);
+    @include hoverLinkRed;
+  }
+}
+.controls {
+  display: flex;
+  margin: 0 rem(-10);
+  li {
+    position: relative;
+    margin: 0 rem(10);
+    @include hoverLinkRed;
+    span {
+      position: absolute;
+      top: rem(-10);
+      right: rem(-8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include size(20px);
+      border-radius: 50%;
+      color: #fff;
+      background-color: $red;
+    }
+  }
+}

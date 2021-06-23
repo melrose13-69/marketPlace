@@ -1,0 +1,15 @@
+@import '../../../assets/styles/mixinsAndVariables';
+
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: rem(30);
+  p {
+    max-width: rem(600);
+    font-size: rem(16);
+    text-align: center;
+  }
+}

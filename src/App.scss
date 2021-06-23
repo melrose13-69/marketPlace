@@ -1,0 +1,23 @@
+@import './assets/styles/mixinsAndVariables';
+
+
+.marketWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: rem(80);
+    box-shadow: 0 rem(10) rem(15) rgba(25, 25, 25, 0.1);
+    background: #FFF;
+    z-index: 999;
+  }
+  main {
+    flex: 1;
+    padding-top: rem(80);
+  }
+}
