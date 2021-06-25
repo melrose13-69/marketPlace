@@ -2,10 +2,12 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import productsReducer from "./products-reducer";
 import { reducer as formReducer } from 'redux-form';
+import sortProductsReducer from './sortProducts-reducer';
 
 
 const reducers = combineReducers({
     products: productsReducer,
+    sort: sortProductsReducer,
 
     form : formReducer
 });

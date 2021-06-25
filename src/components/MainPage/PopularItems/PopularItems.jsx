@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import s from './PopularItems.module.scss';
-import Photo1 from '../../../assets/img/product/iphone-11.png';
-import Photo2 from '../../../assets/img/product/iphone-12.png';
-import Photo3 from '../../../assets/img/product/iphone-12-pro.png';
-import Product from '../../Products/Product/Product';
+import popularItems from '../../../assets/img/popular-items.jpg';
+import { NavLink } from 'react-router-dom';
 
 
 const PopularItems = props => {
@@ -18,12 +16,11 @@ const PopularItems = props => {
         <div className={ `${s.popularItems} section` }>
             <div className='container'>
                 <div className={ `${s.title} title` }>
-                    <h1>Popular Items</h1>
+                    <h1>Blast past fast</h1>
                     <p>We’re always innovating to reduce our carbon footprint. Smaller boxes. More boxes per shipment. Recycled materials. Renewable energy. Efforts like these have allowed us to eliminate over 2 million metric tons of carbon emissions annually. And we’re not done yet.</p>
+                    <div className={s.button}><NavLink to={'/products'}><span>View More Products</span></NavLink></div>
                     <div className='products-inner'>
-                        <Product effect={'menu'} img={Photo1} name={'Iphone 11'} price={'$ 1,050'}/>
-                        <Product effect={'menu'} img={Photo2} name={'Iphone 12'} price={'$ 1,250'}/>
-                        <Product effect={'menu'} img={Photo3} name={'Iphone 12pro'} price={'$ 1,550'}/>
+                        <img src={popularItems} alt='popular items'/>
                     </div>
                 </div>
             </div>

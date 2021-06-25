@@ -1,0 +1,16 @@
+@import '../../assets/styles/mixinsAndVariables';
+
+.products {
+  display: flex;
+}
+
+.wrapper {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: rem(40);
+}
+
+.inner {
+  padding-top: rem(100);
+}

@@ -1,0 +1,72 @@
+@import '../../../assets/styles/mixinsAndVariables';
+
+.inner {
+  margin-bottom: rem(30);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.sort {
+  display: flex;
+  margin: 0 rem(-10);
+}
+
+.pageSize {
+  display: flex;
+  margin: 0 rem(-5);
+}
+
+.pageSizeItem,
+.sortItem {
+  cursor: pointer;
+}
+
+.sortItem {
+  position: relative;
+  margin: 0 rem(10);
+  padding-bottom: rem(5);
+  transition: color .4s;
+  &:hover {
+    color: $red;
+    transition: color .4s;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0);
+    width: 0;
+    height: rem(3);
+    background-color: $red;
+    transition: width .5s ease-in-out;
+  }
+  &.active {
+    color: $red;
+    &::before {
+      width: 110%;
+      transition: width .5s ease-in-out;
+    }
+  }
+}
+
+.pageSizeItem {
+  margin: 0 rem(5);
+  @include size(30px);
+  border: rem(2) solid #F2F2F2;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .4s;
+  &:hover {
+    color: #000;
+    border-color:#000;
+  }
+  &.active {
+    border-color: $red;
+    color: $red;
+    transition: all .4s;
+  }
+}

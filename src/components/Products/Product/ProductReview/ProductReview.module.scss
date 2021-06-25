@@ -1,0 +1,41 @@
+@import '../../../../assets/styles/mixinsAndVariables';
+
+.product {
+  display: flex;
+  flex-direction: column;
+  max-width: rem(300);
+  width: 100%;
+}
+
+.imgWrapperGlobal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: rem(300);
+  margin-bottom: rem(20);
+
+}
+
+.imgWrapperScale {
+  overflow: hidden;
+  &:hover {
+    .img {
+      transform: scale(1.5);
+      transition: transform .7s ease-in-out;
+    }
+  }
+}
+
+.img {
+  min-height: 350px;
+  max-width: 300px;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform .7s ease-in-out;
+}
+
+.info {
+  text-align: center;
+}
+

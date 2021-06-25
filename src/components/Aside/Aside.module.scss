@@ -1,3 +1,19 @@
+@import '../../assets/styles/mixinsAndVariables';
+
 .aside {
   flex: 0 0 250px;
+  position: sticky;
+  top: 0;
+  margin-right: rem(30);
+}
+
+.inner {
+  position: sticky;
+  top: rem(100);
+}
+
+.categoryItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

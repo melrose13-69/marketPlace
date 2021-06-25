@@ -1,8 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 
-const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;700&display=swap'); 
+const GlobalStyle = createGlobalStyle` 
     html {
         line-height: 1.15; /* 1 */
         -webkit-text-size-adjust: 100%; /* 2 */
@@ -216,6 +215,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0 25px;
         margin: 0 auto;
         height: 100%;
+        width: 100%;
     }
     .title {
         font-size: 3rem;
@@ -230,6 +230,7 @@ const GlobalStyle = createGlobalStyle`
     .product-name:hover {
         text-decoration: underline;
     }
+    
     .product-price {
         color: #FF2020;
         font-size: 1rem;
@@ -242,6 +243,10 @@ const GlobalStyle = createGlobalStyle`
     
     .section {
         margin-bottom: 100px;
+    }
+    .sticky-container {
+        position: sticky;
+        top: 0'
     }
  `;
 

@@ -4,6 +4,7 @@
   background-color: #000;
   padding-top: rem(150);
 }
+
 .previewInner {
   display: flex;
   justify-content: space-between;
@@ -12,11 +13,12 @@
     display: flex;
   }
 }
+
 .previewInfo {
   div {
     display: flex;
     margin-bottom: rem(20);
-    color: #fff;
+    color: #FFF;
   }
   h1 {
     font-size: rem(80);
@@ -29,8 +31,7 @@
     letter-spacing: rem(4);
   }
 }
+
 .button {
-  a {
-    @include buttonHover(#4a4a4b, $red)
-  }
+  @include buttonHover(#4A4A4B, $red)
 }

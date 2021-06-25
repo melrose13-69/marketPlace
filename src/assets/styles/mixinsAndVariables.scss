@@ -73,32 +73,37 @@ $blue: #0b1c39;
 }
 
 @mixin buttonHover($buttonColor, $hoverColor) {
-  position: relative;
-  padding: rem(15) rem(30);
-  margin: 0;
-  background: $buttonColor;
-  color: #fff;
-  font-weight: 600;
-  text-transform: uppercase;
+  display: flex;
+  font-size: rem(16);
+  a {
+    position: relative;
+    padding: rem(15) rem(30);
+    margin: 0;
+    background: $buttonColor;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0;
+      background: $hoverColor;
+      z-index: 1;
+      transition: width 0.5s;
+      transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+    }
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
   span {
     position: relative;
     z-index: 2;
   }
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 0;
-    background: $hoverColor;
-    z-index: 1;
-    transition: width 0.5s;
-    transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
-  }
-  &:hover {
-    &::before {
-      width: 100%;
-    }
-  }
+
 }

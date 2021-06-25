@@ -5,6 +5,7 @@
   flex-direction: column;
   max-width: rem(300);
   width: 100%;
+  border: 1px solid #f2f2f2;
 }
 
 .imgWrapperGlobal {
@@ -12,7 +13,6 @@
   align-items: center;
   justify-content: center;
   min-height: rem(300);
-  margin-bottom: rem(20);
 }
 
 .imgWrapperScale {
@@ -27,6 +27,23 @@
 
 .imgWrapperHover {
   position: relative;
+  .bg {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    &::before {
+      content: '';
+      background: transparent url('../../../assets/img/bgProduct-2.jpg');
+      background-size: cover;
+      opacity: .3;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 .img {
@@ -38,18 +55,24 @@
   transition: transform .7s ease-in-out;
 }
 
-.info {
-  text-align: center;
-}
-
-.price {
-  color: $red;
-}
-
 .addCartHover {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.info {
+  text-align: center;
+  padding: rem(20);
+}
+
+.infoTarget {
+  display: flex;
+  justify-content: space-between;
+  margin: rem(5) 0;
+}
+.price {
+  font-size: rem(25);
 }
 .wrapper {
   position: relative;
@@ -58,6 +81,7 @@
   display: flex;
   overflow: hidden;
   cursor: pointer;
+  border-bottom: 5px solid $red;
   span {
     position: absolute;
   }
@@ -66,7 +90,8 @@
     right: rem(10);
     opacity: 0;
     transition: opacity .4s ease-in-out;
-    &:hover {
+    &:hover,
+    &.active{
       color: $red;
     }
   }
@@ -80,7 +105,7 @@
     padding: rem(15) 0;
     background: $red;
     transition: all .5s ease-in-out;
-    color: #fff;
+    color: #FFF;
     &:hover {
       text-decoration: underline;
     }

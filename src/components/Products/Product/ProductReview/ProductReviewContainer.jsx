@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import { compose } from 'redux';
-import Product from './Product';
+import ProductReview from './ProductReview';
 
 
 const mapStateToProps = (state) => {
@@ -9,4 +9,4 @@ const mapStateToProps = (state) => {
 
 export default compose(
     connect(mapStateToProps, {})
-)(Product);
+)(ProductReview);
