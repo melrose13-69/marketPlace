@@ -1,0 +1,55 @@
+@import '../../../assets/styles/mixinsAndVariables';
+.imgWrapper {
+  max-width: rem(150);
+  width: 100%;
+  min-height: rem(150);
+}
+.img {
+  height:100%;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform .7s ease-in-out;
+}
+
+.info {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-right: rem(50);
+}
+.productName {
+  margin: 0 rem(10) 0 0;
+  font-size: rem(30);
+}
+.infoTarget {
+  display: flex;
+  align-items: center;
+  &.processorName {
+
+  }
+}
+.price {
+  display: flex;
+  align-items: center;
+  font-size: rem(30);
+}
+.product {
+  margin: rem(20) 0;
+  border: rem(1) solid #f2f2f2;
+  position: relative;
+  display: flex;
+}
+
+.removeFromCart {
+  position: absolute;
+  right: rem(10);
+  top: 50%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  transition: all .4s;
+  &:hover {
+    color: $red;
+    transition: all .4s;
+  }
+}

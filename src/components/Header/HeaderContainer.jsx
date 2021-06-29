@@ -3,8 +3,12 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 
-const mapStateToProps = () => {
-    return {}
+const mapStateToProps = (state) => {
+    return {
+        compareCount: state.products.compareProductsCount,
+        cartCount: state.products.cartProductsCount,
+        compareError: state.products.compareError
+    }
 };
 
 export default compose(

@@ -1,9 +1,9 @@
 const ADD_NEW_PRODUCT = 'ADD_NEW_PRODUCT';
-const ADD_IN_BASKET = 'ADD_IN_BASKET';
+
+const REMOVE_FROM_COMPARE = 'REMOVE_FROM_COMPARE';
+const ADD_IN_COMPARE = 'ADD_IN_COMPARE';
 const ADD_IN_CART = 'ADD_IN_CART';
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
-const ADD_IN_COMPARE = 'ADD_IN_COMPARE';
-const REMOVE_FROM_COMPARE = 'REMOVE_FROM_COMPARE';
 
 const initialState = {
     productsList : [
@@ -304,12 +304,21 @@ const initialState = {
             productMoreDescription : {}
 
         }
-    ]
+    ],
+    compareProductsCount : 0,
+    compareError : {
+        status : false,
+        title: null,
+        text : null,
+        type: null
+    },
+    cartProductsCount: 0
 };
 const updateObjectInArray = ( items, itemId, objPropName, newObjProps ) => {
     return items.map( item => item[objPropName] === itemId ? { ...item, newObjProps } : item );
 };
 const productsReducer = ( state = initialState, action ) => {
+
     switch( action.type ) {
         case ADD_NEW_PRODUCT:
             return {
@@ -336,9 +345,56 @@ const productsReducer = ( state = initialState, action ) => {
                     productMoreDescription : {}
                 }]
             };
+        case ADD_IN_COMPARE:
+            return {
+                ...state,
+                ...(state.compareProductsCount >= 5
+                        ? {
+                            compareError : {
+                                ...state.compareError,
+                                status : true,
+                                text : 'A maximum of 5 items can be added to the comparison',
+                                title: 'Warning',
+                                type: 'warning'
+                            }
+                        }
+                        : {
+                            compareProductsCount : state.compareProductsCount + 1,
+                            productsList : state.productsList.map( product => {
+                                return product.id === action.id
+                                    ? {
+                                        ...product,
+                                        productShortDescr : {
+                                            ...product.productShortDescr,
+                                            isCompare : true
+                                        }
+                                    }
+                                    : product;
+                            } )
+                        }
+                )
+            };
+        case REMOVE_FROM_COMPARE:
+            return {
+                ...state,
+                compareProductsCount : state.compareProductsCount - 1,
+                compareError : { ...state.compareError, status : false, text : null },
+                productsList : state.productsList.map( product => {
+                    return product.id === action.id
+                        ? {
+                            ...product,
+                            productShortDescr : {
+                                ...product.productShortDescr,
+                                isCompare : false
+                            }
+                        }
+                        : product;
+                } )
+            };
         case ADD_IN_CART:
             return {
                 ...state,
+                cartProductsCount : state.cartProductsCount + 1,
                 productsList : state.productsList.map( product => {
                     return product.id === action.id
                         ? {
@@ -354,6 +410,7 @@ const productsReducer = ( state = initialState, action ) => {
         case REMOVE_FROM_CART:
             return {
                 ...state,
+                cartProductsCount : state.cartProductsCount - 1,
                 productsList : state.productsList.map( product => {
                     return product.id === action.id
                         ? {
@@ -366,61 +423,33 @@ const productsReducer = ( state = initialState, action ) => {
                         : product;
                 } )
             };
-        case ADD_IN_COMPARE:
-            return {
-                ...state,
-                productsList : state.productsList.map( product => {
-                    return product.id === action.id
-                        ? {
-                            ...product,
-                            productShortDescr : {
-                                ...product.productShortDescr,
-                                isCompare : false
-                            }
-                        }
-                        : product;
-                } )
-            };
-        case REMOVE_FROM_COMPARE:
-            return {
-                ...state,
-                productsList : state.productsList.map( product => {
-                    return product.id === action.id
-                        ? {
-                            ...product,
-                            productShortDescr : {
-                                ...product.productShortDescr,
-                                isCompare : false
-                            }
-                        }
-                        : product;
-                } )
-            };
         default:
             return state;
     }
 };
 
 const addNewProductAC = data => ({ type : ADD_NEW_PRODUCT, data });
+const addInCompareAC = id => ({ type : ADD_IN_COMPARE, id });
+const removeFromCompareAC = id => ({ type : REMOVE_FROM_COMPARE, id });
 const addInCartAC = id => ({ type : ADD_IN_CART, id });
 const removeFromCartAC = id => ({ type : REMOVE_FROM_CART, id });
-const addInCompareAC = productId => ({ type : ADD_IN_COMPARE });
-const removeFromCompareAC = productId => ({ type : ADD_IN_COMPARE });
+
 
 export const addNewProduct = data => dispatch => {
     dispatch( addNewProductAC( data ) );
 };
-export const addInCart = id => dispatch => {
-    dispatch( addInCartAC( id ) );
-};
-export const removeFromCart = id => dispatch => {
-    dispatch( removeFromCartAC( id ) );
-};
+
 export const addInCompare = productId => dispatch => {
     dispatch( addInCompareAC( productId ) );
 };
 export const removeFromCompare = productId => dispatch => {
     dispatch( removeFromCompareAC( productId ) );
+};
+export const addInCart = productId => dispatch => {
+    dispatch( addInCartAC( productId ) );
+};
+export const removeFromCart = productId => dispatch => {
+    dispatch( removeFromCartAC( productId ) );
 };
 
 export default productsReducer;

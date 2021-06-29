@@ -9,10 +9,11 @@ const mapStateToProps = state => {
     return {
         productsList : state.products.productsList,
         pageControls: state.sort.pageControls,
-        totalProducts: state.products.productsList.length
+        totalProducts: state.products.productsList.length,
+        compareError: state.products.compareError,
     };
 };
 
 export default compose(
-    connect( mapStateToProps, {changePage, changePageSize, changeSort, addInCart, removeFromCart, addInCompare, removeFromCompare} )
+    connect( mapStateToProps, {changePage, changePageSize, changeSort, addInCompare, removeFromCompare, addInCart, removeFromCart} )
 )( ProductsShop );

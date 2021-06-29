@@ -1,0 +1,40 @@
+@import '../../../assets/styles/mixinsAndVariables';
+
+.img {
+  min-height: 250px;
+  max-width: 250px;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform .7s ease-in-out;
+}
+
+.info {
+  text-align: center;
+}
+
+.infoTarget {
+  margin-bottom:rem(5);
+  &.processorName {
+
+  }
+}
+
+.product {
+  margin: 0 rem(10);
+  border: 1px solid #f2f2f2;
+  padding: rem(10);
+  position: relative;
+}
+
+.removeFromCompare {
+  position: absolute;
+  right: rem(10);
+  top: rem(10);
+  cursor: pointer;
+  transition: all .4s;
+  &:hover {
+    color: $red;
+    transition: all .4s;
+  }
+}

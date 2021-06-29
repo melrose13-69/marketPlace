@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import s from './PopularItems.module.scss';
 import popularItems from '../../../assets/img/popular-items.jpg';
 import { NavLink } from 'react-router-dom';
+import Button from '../../common/Button/Button';
 
 
 const PopularItems = props => {
@@ -18,7 +19,7 @@ const PopularItems = props => {
                 <div className={ `${s.title} title` }>
                     <h1>Blast past fast</h1>
                     <p>We’re always innovating to reduce our carbon footprint. Smaller boxes. More boxes per shipment. Recycled materials. Renewable energy. Efforts like these have allowed us to eliminate over 2 million metric tons of carbon emissions annually. And we’re not done yet.</p>
-                    <div className={s.button}><NavLink to={'/products'}><span>View More Products</span></NavLink></div>
+                    <Button to={'/shop'} text={'View More Products'}/>
                     <div className='products-inner'>
                         <img src={popularItems} alt='popular items'/>
                     </div>

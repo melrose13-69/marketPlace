@@ -19,7 +19,3 @@
   }
 }
 
-.button {
-  @include buttonHover(#4A4A4B, $red);
-  margin-bottom: rem(20);
-}

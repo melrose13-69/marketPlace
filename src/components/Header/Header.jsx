@@ -22,11 +22,11 @@ const Header = props => {
                         <ul className={s.controls}>
                             <li>
                                 <NavLink to={'/compare'}><CompareIcon/></NavLink>
-                                <span>1</span>
+                                <span>{props.compareCount}</span>
                             </li>
                             <li>
                                 <NavLink to={'/basket'}><ShoppingCartIcon/></NavLink>
-                                <span>3</span>
+                                <span>{props.cartCount}</span>
                             </li>
                         </ul>
                     </div>
