@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/marketPlace/static/css/main.d1d5393c.chunk.css",
+    "main.js": "/marketPlace/static/js/main.a7f51f22.chunk.js",
+    "main.js.map": "/marketPlace/static/js/main.a7f51f22.chunk.js.map",
+    "runtime-main.js": "/marketPlace/static/js/runtime-main.7f272031.js",
+    "runtime-main.js.map": "/marketPlace/static/js/runtime-main.7f272031.js.map",
+    "static/css/2.94bf211e.chunk.css": "/marketPlace/static/css/2.94bf211e.chunk.css",
+    "static/js/2.b74be246.chunk.js": "/marketPlace/static/js/2.b74be246.chunk.js",
+    "static/js/2.b74be246.chunk.js.map": "/marketPlace/static/js/2.b74be246.chunk.js.map",
+    "static/js/3.11b0abf1.chunk.js": "/marketPlace/static/js/3.11b0abf1.chunk.js",
+    "static/js/3.11b0abf1.chunk.js.map": "/marketPlace/static/js/3.11b0abf1.chunk.js.map",
+    "index.html": "/marketPlace/index.html",
+    "static/css/2.94bf211e.chunk.css.map": "/marketPlace/static/css/2.94bf211e.chunk.css.map",
+    "static/css/main.d1d5393c.chunk.css.map": "/marketPlace/static/css/main.d1d5393c.chunk.css.map",
+    "static/js/2.b74be246.chunk.js.LICENSE.txt": "/marketPlace/static/js/2.b74be246.chunk.js.LICENSE.txt",
+    "static/media/Product.module.scss": "/marketPlace/static/media/bgProduct-2.329e8455.jpg",
+    "static/media/Gallery.module.scss": "/marketPlace/static/media/gallery-4.92eec87d.jpg",
+    "static/media/iphone-11.08d5cd81.png": "/marketPlace/static/media/iphone-11.08d5cd81.png",
+    "static/media/iphone-12-pro.92d8d62c.png": "/marketPlace/static/media/iphone-12-pro.92d8d62c.png",
+    "static/media/iphone-12.7ddf2017.png": "/marketPlace/static/media/iphone-12.7ddf2017.png",
+    "static/media/popular-items.2df28e4d.jpg": "/marketPlace/static/media/popular-items.2df28e4d.jpg",
+    "static/media/preview-main-img.126de7ee.jpg": "/marketPlace/static/media/preview-main-img.126de7ee.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7f272031.js",
+    "static/css/2.94bf211e.chunk.css",
+    "static/js/2.b74be246.chunk.js",
+    "static/css/main.d1d5393c.chunk.css",
+    "static/js/main.a7f51f22.chunk.js"
+  ]
+}
