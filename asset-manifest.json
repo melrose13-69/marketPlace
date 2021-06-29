@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/marketPlace/static/css/main.d1d5393c.chunk.css",
-    "main.js": "/marketPlace/static/js/main.a7f51f22.chunk.js",
-    "main.js.map": "/marketPlace/static/js/main.a7f51f22.chunk.js.map",
+    "main.js": "/marketPlace/static/js/main.5421ee4d.chunk.js",
+    "main.js.map": "/marketPlace/static/js/main.5421ee4d.chunk.js.map",
     "runtime-main.js": "/marketPlace/static/js/runtime-main.7f272031.js",
     "runtime-main.js.map": "/marketPlace/static/js/runtime-main.7f272031.js.map",
     "static/css/2.94bf211e.chunk.css": "/marketPlace/static/css/2.94bf211e.chunk.css",
@@ -27,6 +27,6 @@
     "static/css/2.94bf211e.chunk.css",
     "static/js/2.b74be246.chunk.js",
     "static/css/main.d1d5393c.chunk.css",
-    "static/js/main.a7f51f22.chunk.js"
+    "static/js/main.5421ee4d.chunk.js"
   ]
 }
