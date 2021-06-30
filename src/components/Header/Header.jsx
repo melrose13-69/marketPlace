@@ -14,10 +14,10 @@ const Header = props => {
                     </div>
                     <div className={s.nav}>
                         <ul className={s.list}>
-                            <li><NavLink to={ '/main' }>Main</NavLink></li>
-                            <li><NavLink to={ '/shop' }>Shop</NavLink></li>
-                            <li><NavLink to={ '/settings' }>Control panel</NavLink></li>
-                            <li><NavLink to={ '/contact' }>Contact</NavLink></li>
+                            <li><NavLink to={ '/main' } activeClassName={s.selected}>Main</NavLink></li>
+                            <li><NavLink to={ '/shop' } activeClassName={s.selected}>Shop</NavLink></li>
+                            <li><NavLink to={ '/settings' } activeClassName={s.selected}>Control panel</NavLink></li>
+                            <li><NavLink to={ '/contact' } activeClassName={s.selected}>Contact</NavLink></li>
                         </ul>
                         <ul className={s.controls}>
                             <li>

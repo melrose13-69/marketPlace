@@ -24,7 +24,8 @@
       transition: width 0.5s;
       transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
     }
-    &:hover {
+    &:hover,
+    &.active {
       &::before {
         width: 100%;
       }

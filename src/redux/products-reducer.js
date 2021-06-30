@@ -4,6 +4,7 @@ const REMOVE_FROM_COMPARE = 'REMOVE_FROM_COMPARE';
 const ADD_IN_COMPARE = 'ADD_IN_COMPARE';
 const ADD_IN_CART = 'ADD_IN_CART';
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+const GET_PRODUCT_BY_ID = 'GET_PRODUCT_BY_ID';
 
 const initialState = {
     productsList : [
@@ -301,18 +302,41 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
 
         }
     ],
     compareProductsCount : 0,
     compareError : {
         status : false,
-        title: null,
+        title : null,
         text : null,
-        type: null
+        type : null
     },
-    cartProductsCount: 0
+    cartProductsCount : 0,
+    selectedProduct : null
 };
 const updateObjectInArray = ( items, itemId, objPropName, newObjProps ) => {
     return items.map( item => item[objPropName] === itemId ? { ...item, newObjProps } : item );
@@ -354,8 +378,8 @@ const productsReducer = ( state = initialState, action ) => {
                                 ...state.compareError,
                                 status : true,
                                 text : 'A maximum of 5 items can be added to the comparison',
-                                title: 'Warning',
-                                type: 'warning'
+                                title : 'Warning',
+                                type : 'warning'
                             }
                         }
                         : {
@@ -423,6 +447,11 @@ const productsReducer = ( state = initialState, action ) => {
                         : product;
                 } )
             };
+        case GET_PRODUCT_BY_ID:
+            return {
+                ...state,
+                selectedProduct : action.id
+            };
         default:
             return state;
     }
@@ -433,7 +462,7 @@ const addInCompareAC = id => ({ type : ADD_IN_COMPARE, id });
 const removeFromCompareAC = id => ({ type : REMOVE_FROM_COMPARE, id });
 const addInCartAC = id => ({ type : ADD_IN_CART, id });
 const removeFromCartAC = id => ({ type : REMOVE_FROM_CART, id });
-
+const getProductByIdAC = id => ({ type : GET_PRODUCT_BY_ID, id });
 
 export const addNewProduct = data => dispatch => {
     dispatch( addNewProductAC( data ) );
@@ -451,6 +480,7 @@ export const addInCart = productId => dispatch => {
 export const removeFromCart = productId => dispatch => {
     dispatch( removeFromCartAC( productId ) );
 };
+
 
 export default productsReducer;
 

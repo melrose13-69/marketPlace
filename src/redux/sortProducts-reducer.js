@@ -17,7 +17,6 @@ const initialState = {
 };
 
 const sortProductsReducer = ( state = initialState, action ) => {
-
     switch( action.type ) {
         case CHANGE_PAGE:
             return {

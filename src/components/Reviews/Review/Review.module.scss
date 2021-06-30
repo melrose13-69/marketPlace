@@ -1,0 +1,100 @@
+@import '../../../assets/styles/mixinsAndVariables';
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border: rem(1) solid #F2F2F2;
+  padding: 0 rem(20) rem(20) rem(20);
+  border-radius: rem(6);
+  margin-bottom: rem(20);
+}
+
+.review {
+  border-radius: rem(6);
+  padding: 0 rem(20) rem(20) rem(20);
+  width: 100%;
+  &.answer {
+    max-width: 70%;
+    border: rem(1) solid #F2F2F2;
+    margin-top: rem(20);
+  }
+}
+
+.header {
+  font-size: rem(25);
+  font-weight: 800;
+  border-bottom: rem(1) solid #F2F2F2;
+  display: flex;
+  justify-content: space-between;
+  padding: rem(20);
+}
+
+.body {
+  padding: rem(20);
+  p {
+    padding-bottom: rem(20);
+    border-bottom: rem(1) solid #F2F2F2;
+    margin-bottom: rem(20);
+  }
+}
+
+.likesTotal {
+  display: flex;
+  margin-bottom: rem(10);
+  font-size: rem(20);
+}
+
+.buttons {
+  display: flex;
+  margin: 0 rem(-10);
+  span {
+    margin: 0 rem(10);
+  }
+  button {
+    //@include buttonHover(#4A4A4B, $red);
+    display: flex;
+    font-size: rem(16);
+    position: relative;
+    padding: rem(15) rem(30);
+    margin: 0;
+    background: #4A4A4B;
+    color: #FFF;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: default;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0;
+      background: $red;
+      z-index: 1;
+      transition: width 0.5s;
+      transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+    }
+    &:not([disabled]) {
+      cursor: pointer;
+      &:hover {
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+
+    span {
+      position: relative;
+      z-index: 2;
+    }
+
+  }
+  .active {
+    &::before {
+      width: 100%;
+    }
+  }
+}

@@ -120,7 +120,11 @@ const GlobalStyle = createGlobalStyle`
          overflow: visible;
          outline: none;
     }
-    
+    input[disabled] {
+        background: transparent;
+        border: none;
+        user-select: none;
+    }
     button,
     select {
          text-transform: none;

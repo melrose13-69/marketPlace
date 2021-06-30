@@ -5,10 +5,10 @@ import ProductsShopSort from '../common/ProductsShopSort/ProductsShopSort';
 import Pagination from '../common/Pagination/Pagination';
 
 
-const ProductsShop = (
-    { productsList,compareError, pageControls, changePageSize, changePage, totalProducts, changeSort,
-        addInCompare, removeFromCompare, addInCart, removeFromCart, handleNoti } ) => {
-
+const ProductsShop = ( {
+                           productsList, compareError, pageControls, changePageSize, changePage, totalProducts,
+                           changeSort, addInCompare, removeFromCompare, addInCart, removeFromCart, handleNoti
+                       } ) => {
     const productsCount = () => {
         switch( pageControls.currentSortStatus ) {
             case 'NEW':
@@ -36,7 +36,6 @@ const ProductsShop = (
         productsCount();
     }, [pageControls.currentPageSize, pageControls.currentSortStatus] );
 
-
     return (
         <>
         <div className={ s.products }>
@@ -48,9 +47,9 @@ const ProductsShop = (
                             ( index >= (pageControls.currentPageSize * (pageControls.currentPage - 1)) && index < (pageControls.currentPageSize * pageControls.currentPage))
                             // index === 0
                             && <Product key={ p.id } productDescr={ p.productShortDescr } productId={ p.id }
-                                        addInCompare={ addInCompare } addInCart={addInCart}
-                                        removeFromCart={removeFromCart} removeFromCompare={ removeFromCompare }
-                                        handleNoti={handleNoti} compareError={compareError}/>
+                                        addInCompare={ addInCompare } addInCart={ addInCart }
+                                        removeFromCart={ removeFromCart } removeFromCompare={ removeFromCompare }
+                                        handleNoti={ handleNoti } compareError={ compareError }/>
                         ) }
                     </div>
                     <Pagination currentPage={ pageControls.currentPage } totalCount={ totalProducts } pageSize={ pageControls.currentPageSize } onPageChanged={ changePage } portionSize={ pageControls.currentPageSize }/>

@@ -17,7 +17,7 @@ const ProductsShopSort = ( { pageControls, changePageSize, changeSort } ) => {
     useEffect( () => {
         changeCurrentPageSize( pageSize );
         changeCurrentSort( sort );
-    }, [pageControls.currentPageSize, pageControls.currentSortStatus] );
+    }, [pageControls.currentPageSize, pageControls.currentSortStatus, sort, pageSize] );
 
 
     return (

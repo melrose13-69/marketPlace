@@ -4,12 +4,14 @@ import productsReducer from "./products-reducer";
 import { reducer as formReducer } from 'redux-form';
 import sortProductsReducer from './sortProducts-reducer';
 import compareReducer from './compare-reducer';
+import reviewsReducer from './reviews-reducer';
 
 
 const reducers = combineReducers({
     products: productsReducer,
     sort: sortProductsReducer,
     compare: compareReducer,
+    reviews: reviewsReducer,
 
     form : formReducer
 });

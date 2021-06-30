@@ -1,0 +1,14 @@
+@import '../../assets/styles/mixinsAndVariables';
+
+
+.wrapper {
+  display: flex;
+}
+.aside {
+  max-width: rem(250);
+  width: 100%;
+}
+
+.inner {
+  flex: 1;
+}

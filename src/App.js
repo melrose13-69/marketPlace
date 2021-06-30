@@ -39,7 +39,7 @@ const App = props => {
                 <Route path='/compare' render={ () => <CompareContainer/> }/>
                 <Route path='/basket' render={ () => <CartContainer/> }/>
                 <Route path='/shop' render={ () => <ProductsShopContainer handleNoti={handleNoti}/> }/>
-                <Route path='/product' render={ () => <ProductInfoContainer/> }/>
+                <Route path='/product/:productId' render={ () => <ProductInfoContainer/> }/>
                 <Route path='/settings' render={ () => <ControlPanelContainer/> }/>
             </main>
             <FooterContainer/>

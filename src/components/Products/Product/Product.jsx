@@ -52,7 +52,7 @@ const Product = ( { productDescr, productId, addInCompare, removeFromCompare, ad
             <div className={ s.info }>
                 <div className={ s.infoTarget }>
                     <div className='product-name'>
-                        <NavLink to={ '/shop' }>{ productDescr.name }</NavLink>
+                        <NavLink to={ `/product/${productId}` }>{ productDescr.name }</NavLink>
                     </div>
                     <div className={ `${s.price} product-price` }>{ `$ ${productDescr.price}` }</div>
                 </div>
@@ -71,7 +71,6 @@ const Product = ( { productDescr, productId, addInCompare, removeFromCompare, ad
                 <div className={ s.infoTarget }>
                     <span>CPU: </span><span>{ productDescr.cpu }</span>
                 </div>
-
             </div>
         </div>
     );
