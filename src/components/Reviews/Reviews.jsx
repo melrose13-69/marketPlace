@@ -21,7 +21,16 @@ const Reviews = ( {productReviews, like, dislike} ) => {
             <div className={s.inner}>
                 {
                     productReviews.reviews.map(r =>
-                        <Review key={r.id} {...r} like={like} dislike={dislike}/>
+                        <Review key={r.id}
+                                id={r.id}
+                                answer={r.answer}
+                                from={r.from}
+                                rating={r.rating}
+                                text={r.text}
+                                likes={r.likes}
+                                likeStatus={r.likeStatus}
+                                like={like}
+                                dislike={dislike}/>
                     )
                 }
             </div>

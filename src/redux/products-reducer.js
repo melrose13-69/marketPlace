@@ -338,9 +338,6 @@ const initialState = {
     cartProductsCount : 0,
     selectedProduct : null
 };
-const updateObjectInArray = ( items, itemId, objPropName, newObjProps ) => {
-    return items.map( item => item[objPropName] === itemId ? { ...item, newObjProps } : item );
-};
 const productsReducer = ( state = initialState, action ) => {
 
     switch( action.type ) {
@@ -462,7 +459,6 @@ const addInCompareAC = id => ({ type : ADD_IN_COMPARE, id });
 const removeFromCompareAC = id => ({ type : REMOVE_FROM_COMPARE, id });
 const addInCartAC = id => ({ type : ADD_IN_CART, id });
 const removeFromCartAC = id => ({ type : REMOVE_FROM_CART, id });
-const getProductByIdAC = id => ({ type : GET_PRODUCT_BY_ID, id });
 
 export const addNewProduct = data => dispatch => {
     dispatch( addNewProductAC( data ) );

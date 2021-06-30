@@ -13,7 +13,7 @@ const initialState = {
                 text : 'a123333333333333333333222222222222222222222'
             },
             text : 'asdasdasdsadasd12321312dasdsadsad',
-            rating : 3.5,
+            rating : 3,
             likes : 12,
             likeStatus : {
                 like : false,
@@ -41,7 +41,7 @@ const initialState = {
                 type : false
             },
             text : 'asdasdasdsadasd12321312dasdsadsad',
-            rating : 5,
+            rating : 4,
             likes : 12,
             likeStatus : {
                 like : false,
@@ -52,17 +52,16 @@ const initialState = {
 };
 
 const reviewsReducer = ( state = initialState, action ) => {
-debugger
+
     switch( action.type ) {
         case LIKE:
             return {
                 ...state,
-                ...state.reviews,
-                reviews : state.reviews.filter( r => r.id === action.id ? {
+                reviews : state.reviews.map( r => r.id === action.id ? {
                     ...r,
                     likes : r.likes + 1,
                     likeStatus : {
-                        // ...r.likeStatus,
+                        ...r.likeStatus,
                         like : true,
                         dislike : false
                     }
@@ -71,12 +70,10 @@ debugger
         case DISLIKE:
             return {
                 ...state,
-                ...state.reviews,
-                reviews : state.reviews.filter( r => r.id === action.id ? {
+                reviews : state.reviews.map( r => r.id === action.id ? {
                     ...r,
-                    likes : r.likes + 1,
                     likeStatus : {
-                        // ...r.likeStatus,
+                        ...r.likeStatus,
                         like : false,
                         dislike : true
                     }

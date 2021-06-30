@@ -7,17 +7,17 @@ const ProductsShopSort = ( { pageControls, changePageSize, changeSort } ) => {
     const [pageSize, setPageSize] = useState( pageControls.currentPageSize );
 
 
-    const changeCurrentSort = sort => {
-        changeSort( sort );
-    };
-    const changeCurrentPageSize = pageSize => {
-        changePageSize( pageSize );
-    };
-
     useEffect( () => {
+        const changeCurrentSort = sort => {
+            changeSort( sort );
+        };
+        const changeCurrentPageSize = pageSize => {
+            changePageSize( pageSize );
+        };
+
         changeCurrentPageSize( pageSize );
         changeCurrentSort( sort );
-    }, [pageControls.currentPageSize, pageControls.currentSortStatus, sort, pageSize] );
+    }, [pageControls.currentPageSize, pageControls.currentSortStatus, sort, pageSize, changePageSize, changeSort] );
 
 
     return (

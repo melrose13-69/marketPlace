@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import s from './CompareProduct.module.scss';
 import { NavLink } from 'react-router-dom';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';

@@ -8,7 +8,7 @@ const Button = props => {
         <button className={ s.button }>
             {
                 props.to === 'empty'
-                    ? <a href='#'><span>{ props.text }</span></a>
+                    ? <a href='/' onClick={(e) => {e.preventDefault()}}><span>{ props.text }</span></a>
                     : <NavLink to={ props.to }><span>{ props.text }</span></NavLink>
             }
         </button>

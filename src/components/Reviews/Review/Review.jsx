@@ -3,38 +3,46 @@ import s from './Review.module.scss';
 import Rating from '@material-ui/lab/Rating';
 
 
-const Review = props => {
-    const [likes, setLikes] = useState( props.likes );
-    const [likeStatus, setLikeStatus] = useState( props.likeStatus.like );
-    const [dislikeStatus, setDislikeStatus] = useState( props.likeStatus.dislike );
-    const [disableLikes, setDisableLikes] = useState( false );
-
-
+const Review = ( { likes, likeStatus, like, dislike, id, from, rating, answer, text } ) => {
+    const [ likesLocal, setLikes ] = useState( likes );
+    const [ likeLocalStatus, setLikeLocalStatus ] = useState( likeStatus.like );
+    const [ dislikeStatus, setDislikeStatus ] = useState( likeStatus.dislike );
+    const [ disableLikes, setDisableLikes ] = useState( false );
 
     useEffect( () => {
-        props.likeStatus.like || props.likeStatus.dislike ? setDisableLikes( true ) : setDisableLikes( false );
-    }, [disableLikes] );
+        likeLocalStatus || dislikeStatus ? setDisableLikes( true ) : setDisableLikes( false );
+    }, [ dislikeStatus, likeLocalStatus ] );
+
+    useEffect( () => {
+        like( id );
+    }, [ likesLocal, id, like ] );
+    useEffect( () => {
+        dislike( id );
+    }, [ dislikeStatus, id, dislike ] );
 
     return (
         <div className={ s.inner }>
             <div className={ s.review }>
                 <div className={ s.header }>
-                    <div>{ props.from }</div>
-                    <Rating name='half-rating-read' defaultValue={ props.rating } precision={ 0.5 } readOnly/>
+                    <div>{ from }</div>
+                    <Rating name='rating-read' defaultValue={ rating } precision={ 1 } readOnly/>
                 </div>
                 <div className={ s.body }>
-                    <p>{ props.text }</p>
+                    <p>{ text }</p>
                     <div className={ s.helpAnswer }>
                         <span>This review helped you ?</span>
                         <div>
-                            <span className={ s.likesTotal }>Likes: { likes }</span>
+                            <span className={ s.likesTotal }>Likes: { likesLocal }</span>
                             <div className={ s.buttons }>
-                                <button onClick={ () => {props.dislike(props.id)} }
-                                        className={ dislikeStatus === true && s.active }
+                                <button onClick={ () => {setDislikeStatus( true );} }
+                                        className={ dislikeStatus ? s.active : '' }
                                         disabled={ disableLikes }>
                                     <span>No</span></button>
-                                <button onClick={ () => {props.like(props.id)} }
-                                        className={ likeStatus === true && s.active }
+                                <button onClick={ () => {
+                                    setLikeLocalStatus( true );
+                                    setLikes( likesLocal + 1 );
+                                } }
+                                        className={ likeLocalStatus ? s.active : '' }
                                         disabled={ disableLikes }>
                                     <span>Yes</span></button>
                             </div>
@@ -44,13 +52,13 @@ const Review = props => {
                 </div>
             </div>
             {
-                props.answer.type === true &&
-                <div className={ `${s.answer} ${s.review}` }>
+                answer.type === true &&
+                <div className={ `${ s.answer } ${ s.review }` }>
                     <div className={ s.header }>
-                        <div>{ props.answer.from }</div>
+                        <div>{ answer.from }</div>
                     </div>
                     <div className={ s.body }>
-                        <p>{ props.answer.text }</p>
+                        <p>{ answer.text }</p>
                     </div>
                 </div>
             }

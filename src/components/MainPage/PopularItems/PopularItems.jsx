@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import s from './PopularItems.module.scss';
 import popularItems from '../../../assets/img/popular-items.jpg';
-import { NavLink } from 'react-router-dom';
 import Button from '../../common/Button/Button';
 
 
