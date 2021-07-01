@@ -5,13 +5,13 @@ import { NavLink } from 'react-router-dom';
 
 const Button = props => {
     return (
-        <button className={ s.button }>
+        <div className={ s.button }>
             {
                 props.to === 'empty'
                     ? <a href='/' onClick={(e) => {e.preventDefault()}}><span>{ props.text }</span></a>
                     : <NavLink to={ props.to }><span>{ props.text }</span></NavLink>
             }
-        </button>
+        </div>
     );
 };
 
