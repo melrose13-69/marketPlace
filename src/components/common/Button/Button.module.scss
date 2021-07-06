@@ -4,7 +4,8 @@
   //@include buttonHover(#4A4A4B, $red);
   display: flex;
   font-size: rem(16);
-  a {
+  a,
+  button {
     position: relative;
     padding: rem(15) rem(30);
     margin: 0;
@@ -12,6 +13,7 @@
     color: #fff;
     font-weight: 600;
     text-transform: uppercase;
+    cursor: pointer;
     &::before {
       content: '';
       position: absolute;

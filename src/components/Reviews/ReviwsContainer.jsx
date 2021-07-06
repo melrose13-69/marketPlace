@@ -2,22 +2,24 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Reviews from './Reviews';
-import { dislike, like } from '../../redux/reviews-reducer';
+import { addNewReview, dislike, like } from '../../redux/reviews-reducer';
+import { useParams } from 'react-router-dom';
 
-const ReviewsContainer = ({reviews, like, dislike}) => {
+
+const ReviewsContainer = ( { reviews, like, dislike, averageRating, addNewReview } ) => {
+
     return (
-        <Reviews productReviews={reviews} dislike={dislike} like={like}/>
-    )
+        <Reviews addNewReview={ addNewReview } averageRating={ averageRating } productReviews={ reviews } dislike={ dislike } like={ like }/>
+    );
 };
-
 
 const mapStateToProps = state => {
     return {
-        reviews: state.reviews,
-    }
+        reviews : state.reviews,
+        averageRating : state.reviews.reviews.map( p => p.rating ).reduce( ( acc, val, i ) => (acc + val) / i )
+    };
 };
 
-
 export default compose(
-    connect(mapStateToProps, {like, dislike})
-)(ReviewsContainer);
+    connect( mapStateToProps, { like, dislike, addNewReview } )
+)( ReviewsContainer );

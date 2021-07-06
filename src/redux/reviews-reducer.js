@@ -1,5 +1,6 @@
 const LIKE = 'LIKE';
 const DISLIKE = 'DISLIKE';
+const ADD_REVIEW = 'ADD_REVIEW';
 
 const initialState = {
     id : 88,
@@ -79,6 +80,27 @@ const reviewsReducer = ( state = initialState, action ) => {
                     }
                 } : r )
             };
+        case ADD_REVIEW:
+            return {
+                ...state,
+                reviews : [
+                    ...state.reviews,
+                    {
+                        id : state.reviews[state.reviews.length - 1].id + 1,
+                        from : action.data.from,
+                        answer : {
+                            type : false
+                        },
+                        text : action.data.text,
+                        rating : action.data.rating,
+                        likes : 0,
+                        likeStatus : {
+                            like : false,
+                            dislike : false
+                        }
+                    }
+                ]
+            };
         default:
             return state;
     }
@@ -86,12 +108,16 @@ const reviewsReducer = ( state = initialState, action ) => {
 
 const likeAC = id => ({ type : LIKE, id });
 const dislikeAC = id => ({ type : DISLIKE, id });
+const addNewReviewAC = data => ({ type : ADD_REVIEW, data });
 
 export const like = reviewId => dispatch => {
     dispatch( likeAC( reviewId ) );
 };
 export const dislike = reviewId => dispatch => {
     dispatch( dislikeAC( reviewId ) );
+};
+export const addNewReview = data => dispatch => {
+    dispatch( addNewReviewAC( data ) );
 };
 
 export default reviewsReducer;
