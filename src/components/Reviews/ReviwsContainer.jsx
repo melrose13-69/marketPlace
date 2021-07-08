@@ -16,7 +16,7 @@ const ReviewsContainer = ( { reviews, like, dislike, averageRating, addNewReview
 const mapStateToProps = state => {
     return {
         reviews : state.reviews,
-        averageRating : state.reviews.reviews.map( p => p.rating ).reduce( ( acc, val, i ) => (acc + val) / i )
+        averageRating : state.reviews.reviews.map( p => p.rating ).reduce( ( acc, val ) => (acc + val) ) / state.reviews.reviews.length
     };
 };
 

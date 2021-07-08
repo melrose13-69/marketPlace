@@ -8,11 +8,12 @@ import LoaderComponent from '../common/Loaders/Loader';
 import Button from '../common/Button/Button';
 
 
-const ProductInfo = ( { productMoreDescription, productShortDescr, id, addInCart, removeFromCart } ) => {
+const ProductInfo = ( props ) => {
+
     const [colorIndex, setColorIndex] = useState( 0 );
     const [waitForSlide, setWaitForSlide] = useState( false );
-    const [colorString, setColorString] = useState( productMoreDescription.images[0].colorDescr );
-    const [price, setPrice] = useState( parseInt( productShortDescr.price ) );
+    const [colorString, setColorString] = useState( props.productMoreDescription.images[0].colorDescr );
+    const [price, setPrice] = useState( parseInt( props.productShortDescr.price ) );
     const [productCount, setProductCount] = useState( 1 );
     const slider = React.createRef();
     const loaderSettings = {
@@ -58,16 +59,16 @@ const ProductInfo = ( { productMoreDescription, productShortDescr, id, addInCart
         setWaitForSlide( false );
     }, [] );
     useEffect( () => {
-        setPrice( productShortDescr.price * productCount );
-    }, [productCount, productShortDescr.price] );
+        setPrice( props.productShortDescr.price * productCount );
+    }, [productCount, props.productShortDescr.price] );
     return (
         <div className={ `${ s.wrapper } section` }>
-            <h1>{ productShortDescr.name }</h1>
+            <h1>{ props.productShortDescr.name }</h1>
             <div className={ s.inner }>
                 <div className={ s.img }>
                     <Slider { ...sliderSettings } ref={ slider }>
                         {
-                            productMoreDescription.images.map( ( img, i ) =>
+                            props.productMoreDescription.images.map( ( img, i ) =>
                                 <div key={ i }><img src={ img.img } alt='product'/></div>
                             )
                         }
@@ -84,7 +85,7 @@ const ProductInfo = ( { productMoreDescription, productShortDescr, id, addInCart
                     </div>
                     <div className={ s.colors }>
                         {
-                            productMoreDescription.images.map( ( img, imgIndex ) =>
+                            props.productMoreDescription.images.map( ( img, imgIndex ) =>
                                 colorIndex === imgIndex
                                     ?
                                     <button key={ imgIndex }
@@ -106,33 +107,33 @@ const ProductInfo = ( { productMoreDescription, productShortDescr, id, addInCart
                     </div>
                     <div className={ s.targets }>
                         <div className={ s.infoTarget }>
-                            <span>Display diagonal: </span><span>{ productShortDescr.diagonal }</span>
+                            <span>Display diagonal: </span><span>{ props.productShortDescr.diagonal }</span>
                         </div>
                         <div className={ s.infoTarget }>
-                            <span>RAM: </span><span>{ productShortDescr.ram }</span>
+                            <span>RAM: </span><span>{ props.productShortDescr.ram }</span>
                         </div>
                         <div className={ s.infoTarget }>
-                            <span>Memory: </span><span>{ productShortDescr.memory }</span>
+                            <span>Memory: </span><span>{ props.productShortDescr.memory }</span>
                         </div>
                         <div className={ s.infoTarget }>
-                            <span>Camera: </span><span>{ productShortDescr.mainCamera }</span>
+                            <span>Camera: </span><span>{props. productShortDescr.mainCamera }</span>
                         </div>
                         <div className={ s.infoTarget }>
-                            <span>CPU: </span><span>{ productShortDescr.cpu }</span>
+                            <span>CPU: </span><span>{ props.productShortDescr.cpu }</span>
                         </div>
                         <div className={ s.description }>
-                            <span>Description</span><span>{ productMoreDescription.description }</span>
+                            <span>Description</span><span>{ props.productMoreDescription.description }</span>
                         </div>
                     </div>
                     <div className={ s.button }>
                         {
-                            productShortDescr.isInCart
+                            props.productShortDescr.isInCart
                                 ?
-                                <span onClick={ () => {removeFromCart( id );} }>
+                                <span onClick={ () => {props.removeFromCart( props.id );} }>
                                     <Button text={ 'Remove from cart' } to={ 'empty' }/>
                                 </span>
                                 :
-                                <span onClick={ () => {addInCart( id );} }>
+                                <span onClick={ () => {props.addInCart( props.id );} }>
                                     <Button text={ 'Add in cart' } to={ 'empty' }/>
                                 </span>
                         }

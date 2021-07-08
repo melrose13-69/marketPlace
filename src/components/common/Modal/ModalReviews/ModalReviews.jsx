@@ -6,7 +6,7 @@ import s from './ModalReviews.module.scss';
 import Button from '../../Button/Button';
 
 
-const ModalReviews = () => {
+const ModalReviews = (props) => {
     const { register, handleSubmit } = useForm();
     const [ratingEventVal, setRatingEventVal] = useState();
 
@@ -15,11 +15,11 @@ const ModalReviews = () => {
             ...data,
             rating : data.rating === undefined ? 5 : parseInt( data.rating )
         };
-        console.log( data );
+        props.onSubmit(data);
     };
 
     return (
-        <form onSubmit={ handleSubmit( handleSubmit( onSubmitHandler ) ) }>
+        <form onSubmit={ handleSubmit( handleSubmit( onSubmitHandler )) }>
             <div className={ s.input }>
                 <Input { ...register( 'from' ) } placeholder='First name' label='asd' autoFocus={ true } required={ true }/>
 

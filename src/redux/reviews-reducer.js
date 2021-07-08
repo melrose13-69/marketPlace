@@ -3,7 +3,7 @@ const DISLIKE = 'DISLIKE';
 const ADD_REVIEW = 'ADD_REVIEW';
 
 const initialState = {
-    id : 88,
+    id : 1,
     reviews : [
         {
             id : 1020001,
@@ -53,7 +53,6 @@ const initialState = {
 };
 
 const reviewsReducer = ( state = initialState, action ) => {
-
     switch( action.type ) {
         case LIKE:
             return {
@@ -84,7 +83,6 @@ const reviewsReducer = ( state = initialState, action ) => {
             return {
                 ...state,
                 reviews : [
-                    ...state.reviews,
                     {
                         id : state.reviews[state.reviews.length - 1].id + 1,
                         from : action.data.from,
@@ -98,7 +96,8 @@ const reviewsReducer = ( state = initialState, action ) => {
                             like : false,
                             dislike : false
                         }
-                    }
+                    },
+                    ...state.reviews
                 ]
             };
         default:

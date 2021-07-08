@@ -1,3 +1,5 @@
+import {request, getItemFromLocalStorage} from '../components/localstorageRequest/request';
+
 const ADD_NEW_PRODUCT = 'ADD_NEW_PRODUCT';
 
 const REMOVE_FROM_COMPARE = 'REMOVE_FROM_COMPARE';
@@ -5,6 +7,7 @@ const ADD_IN_COMPARE = 'ADD_IN_COMPARE';
 const ADD_IN_CART = 'ADD_IN_CART';
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 const GET_PRODUCT_BY_ID = 'GET_PRODUCT_BY_ID';
+const GET_PRODUCTS = 'GET_PRODUCTS';
 
 const initialState = {
     productsList : [
@@ -27,7 +30,29 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
         },
         {
             id : 2,
@@ -48,7 +73,29 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
         },
         {
             id : 3,
@@ -69,7 +116,29 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
         },
         {
             id : 4,
@@ -90,7 +159,29 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
         },
         {
             id : 5,
@@ -111,7 +202,29 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
         },
         {
             id : 6,
@@ -132,10 +245,32 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
         },
         {
-            id : 32,
+            id : 7,
             productShortDescr : {
                 images : ['https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000'],
                 name : 'Iphone 12',
@@ -153,7 +288,29 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
         },
         {
             id : 8,
@@ -174,10 +331,32 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
         },
         {
-            id : 67,
+            id : 9,
             productShortDescr : {
                 images : ['https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000'],
                 name : 'Iphone 11',
@@ -195,7 +374,29 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
         },
         {
             id : 10,
@@ -216,10 +417,32 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
         },
         {
-            id : 98,
+            id : 11,
             productShortDescr : {
                 images : ['https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000'],
                 name : 'Iphone 13',
@@ -237,7 +460,30 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
+
         },
         {
             id : 12,
@@ -258,7 +504,29 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
 
         },
         {
@@ -280,11 +548,33 @@ const initialState = {
                 isCompare : false,
                 isInCart : false
             },
-            productMoreDescription : {}
+            productMoreDescription : {
+                images : [
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'black',
+                        colorDescr : 'Black'
+                    },
+                    {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'red',
+                        colorDescr : 'Red'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'green',
+                        colorDescr : 'Green'
+                    }, {
+                        img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
+                        color : 'yellow',
+                        colorDescr : 'Yellow'
+                    }
+                ],
+                description : 'The iPhone 11 includes a dual-lens 12 MP rear camera array. It has one ƒ/2.4 ultra-wide-angle lens with a 120° field of view and 2× optical zoom out, and one ƒ/1.8 wide-angle lens. The iPhone 11 supports 4K video at up to 60 fps and 1080p slow motion at up to 240 fps.[7] The phone also features an audio zoom feature, which focuses audio on the area on which is being zoomed in, similar to the Pro model.[14] Both of the cameras support video, although only the primary lens has OIS. It supports portrait mode with six portrait lighting effects, depth control, and an advanced bokeh effect. The phone also has an automatic night mode allowing the camera to take brighter pictures with reduced noise in low-light environments. Also, a redesigned camera app adds new features such as a scroll wheel for choosing between the different lenses and a feature called "QuickTake".'
+            }
 
         },
         {
-            id : 88,
+            id : 14,
             productShortDescr : {
                 images : ['https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000'],
                 name : 'Iphone 11',
@@ -336,7 +626,7 @@ const initialState = {
         type : null
     },
     cartProductsCount : 0,
-    selectedProduct : null
+    selectedProduct : 0
 };
 const productsReducer = ( state = initialState, action ) => {
 
@@ -449,34 +739,54 @@ const productsReducer = ( state = initialState, action ) => {
                 ...state,
                 selectedProduct : action.id
             };
+        case GET_PRODUCTS:
+            return {
+                ...state,
+                productsList: action.data.productList,
+                compareProductsCount : action.data.compareProductsCount,
+                cartProductsCount : action.data.cartProductsCount,
+            };
         default:
             return state;
     }
 };
+
+
 
 const addNewProductAC = data => ({ type : ADD_NEW_PRODUCT, data });
 const addInCompareAC = id => ({ type : ADD_IN_COMPARE, id });
 const removeFromCompareAC = id => ({ type : REMOVE_FROM_COMPARE, id });
 const addInCartAC = id => ({ type : ADD_IN_CART, id });
 const removeFromCartAC = id => ({ type : REMOVE_FROM_CART, id });
+const getProductByIdAC = id => ({type: GET_PRODUCT_BY_ID, id});
+const getProductsAC = data => ({type: GET_PRODUCTS, data});
+
 
 export const addNewProduct = data => dispatch => {
     dispatch( addNewProductAC( data ) );
 };
-
 export const addInCompare = productId => dispatch => {
     dispatch( addInCompareAC( productId ) );
+    request.addProductInCompare(productId);
 };
 export const removeFromCompare = productId => dispatch => {
     dispatch( removeFromCompareAC( productId ) );
+    request.removeProductFromCompare(productId)
 };
-export const addInCart = productId => dispatch => {
+export const addInCart = productId => async dispatch => {
     dispatch( addInCartAC( productId ) );
+    request.addProductInCart(productId);
 };
 export const removeFromCart = productId => dispatch => {
     dispatch( removeFromCartAC( productId ) );
+    request.removeProductFromCart(productId);
 };
-
-
+export const getProductById = productId => dispatch => {
+    dispatch( getProductByIdAC( productId ) );
+};
+export const getProducts = () => dispatch => {
+    const response = getItemFromLocalStorage('products');
+    dispatch(getProductsAC(response));
+};
 export default productsReducer;
 

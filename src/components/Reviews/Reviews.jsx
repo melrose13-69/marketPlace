@@ -29,26 +29,20 @@ const Reviews = ( { averageRating, productReviews, like, dislike, addNewReview }
     const classes = useStyles();
     const [open, setOpen] = useState( false );
 
-    const handleOpen = () => {
-        setOpen( true );
-    };
 
-    const handleClose = () => {
-        setOpen( false );
-    };
     const onAddNewReview = formData => {
-        console.log( formData );
-        addNewReview(formData)
+        addNewReview(formData);
+        setOpen(false)
     };
     return (
         <div className={ `${s.wrapper} section` }>
             <div className={ s.aside }>
                 <div>
                     <span>Average rating</span>
-                    <span>{ averageRating }</span>
+                    <span>{ averageRating.toFixed(1) }</span>
                 </div>
                 <div>
-                    <span onClick={ handleOpen }>
+                    <span onClick={ () => {setOpen( true );} }>
                         <Button to='empty' text='Add new review'/>
                     </span>
                 </div>
@@ -56,7 +50,7 @@ const Reviews = ( { averageRating, productReviews, like, dislike, addNewReview }
                        aria-describedby={ 'transition-modal-description' }
                        className={ classes.modal }
                        open={ open }
-                       onClose={ handleClose }
+                       onClose={ () => {setOpen( false );} }
                        closeAfterTransition
                        BackdropComponent={ Backdrop }
                        BackdropProps={ {
@@ -64,7 +58,7 @@ const Reviews = ( { averageRating, productReviews, like, dislike, addNewReview }
                        } }>
                     <Fade in={ open }>
                         <div className={ classes.paper }>
-                            <ModalReviews onSubmit={onAddNewReview}/>
+                            <ModalReviews onClose={setOpen} onSubmit={onAddNewReview}/>
                         </div>
                     </Fade>
                 </Modal>
