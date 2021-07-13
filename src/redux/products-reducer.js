@@ -1,4 +1,4 @@
-import {request, getItemFromLocalStorage} from '../components/localstorageRequest/request';
+import {requestToLS} from '../api/localstorageRequest/requestToLS';
 
 const ADD_NEW_PRODUCT = 'ADD_NEW_PRODUCT';
 
@@ -767,25 +767,25 @@ export const addNewProduct = data => dispatch => {
 };
 export const addInCompare = productId => dispatch => {
     dispatch( addInCompareAC( productId ) );
-    request.addProductInCompare(productId);
+    requestToLS.addProductInCompare(productId);
 };
 export const removeFromCompare = productId => dispatch => {
     dispatch( removeFromCompareAC( productId ) );
-    request.removeProductFromCompare(productId)
+    requestToLS.removeProductFromCompare(productId)
 };
 export const addInCart = productId => async dispatch => {
     dispatch( addInCartAC( productId ) );
-    request.addProductInCart(productId);
+    requestToLS.addProductInCart(productId);
 };
 export const removeFromCart = productId => dispatch => {
     dispatch( removeFromCartAC( productId ) );
-    request.removeProductFromCart(productId);
+    requestToLS.removeProductFromCart(productId);
 };
 export const getProductById = productId => dispatch => {
     dispatch( getProductByIdAC( productId ) );
 };
 export const getProducts = () => dispatch => {
-    const response = getItemFromLocalStorage('products');
+    const response = requestToLS.getItemFromLocalStorage('products');
     dispatch(getProductsAC(response));
 };
 export default productsReducer;

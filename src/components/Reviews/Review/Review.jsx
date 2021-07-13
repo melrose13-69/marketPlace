@@ -3,7 +3,7 @@ import s from './Review.module.scss';
 import Rating from '@material-ui/lab/Rating';
 
 
-const Review = ( { likes, likeStatus, like, dislike, id, from, rating, answer, text } ) => {
+const Review = ( { likes, likeStatus, like, dislike, reviewId, from, rating, answer, text, productId } ) => {
     const [ likesLocal, setLikes ] = useState( likes );
     const [ likeLocalStatus, setLikeLocalStatus ] = useState( likeStatus.like );
     const [ dislikeStatus, setDislikeStatus ] = useState( likeStatus.dislike );
@@ -14,11 +14,11 @@ const Review = ( { likes, likeStatus, like, dislike, id, from, rating, answer, t
     }, [ dislikeStatus, likeLocalStatus ] );
 
     useEffect( () => {
-        like( id );
-    }, [ likesLocal, id, like ] );
+        like( reviewId, productId );
+    }, [ likesLocal, reviewId, productId, like ] );
     useEffect( () => {
-        dislike( id );
-    }, [ dislikeStatus, id, dislike ] );
+        dislike( reviewId, productId );
+    }, [ dislikeStatus, reviewId, productId, dislike ] );
 
     return (
         <div className={ s.inner }>

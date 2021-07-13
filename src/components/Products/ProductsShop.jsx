@@ -3,7 +3,7 @@ import Product from './Product/Product';
 import s from './ProductsShop.module.scss';
 import ProductsShopSort from '../common/ProductsShopSort/ProductsShopSort';
 import Pagination from '../common/Pagination/Pagination';
-import { postItemFromLocalStorage, getItemFromLocalStorage } from '../localstorageRequest/request';
+import { requestToLS} from '../../api/localstorageRequest/requestToLS';
 
 
 const ProductsShop = ( {
@@ -16,8 +16,8 @@ const ProductsShop = ( {
         getProducts();
     }, [] );
 
-    if ( getItemFromLocalStorage('products') === null ) {
-        postItemFromLocalStorage( 'products',
+    if ( requestToLS.getItemFromLocalStorage('products') === null ) {
+        requestToLS.postItemFromLocalStorage( 'products',
             {
                 productList : productsList,
                 compareProductsCount : compareProductsCount,

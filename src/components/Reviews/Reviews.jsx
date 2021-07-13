@@ -25,10 +25,9 @@ const useStyles = makeStyles( ( theme ) => ({
     }
 }) );
 
-const Reviews = ( { averageRating, productReviews, like, dislike, addNewReview } ) => {
+const Reviews = ( { averageRating, productReviews, like, dislike, addNewReview, productId } ) => {
     const classes = useStyles();
     const [open, setOpen] = useState( false );
-
 
     const onAddNewReview = formData => {
         addNewReview(formData);
@@ -67,7 +66,7 @@ const Reviews = ( { averageRating, productReviews, like, dislike, addNewReview }
                 {
                     productReviews.reviews.map( r =>
                         <Review key={ r.id }
-                                id={ r.id }
+                                reviewId={ r.id }
                                 answer={ r.answer }
                                 from={ r.from }
                                 rating={ r.rating }
@@ -75,7 +74,8 @@ const Reviews = ( { averageRating, productReviews, like, dislike, addNewReview }
                                 likes={ r.likes }
                                 likeStatus={ r.likeStatus }
                                 like={ like }
-                                dislike={ dislike }/>
+                                dislike={ dislike }
+                                productId={productId}/>
                     )
                 }
             </div>
