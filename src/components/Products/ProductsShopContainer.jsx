@@ -2,7 +2,7 @@ import ProductsShop from './ProductsShop';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { changePage, changePageSize, changeSort } from '../../redux/sortProducts-reducer';
-import { addInCart, addInCompare, getProducts, removeFromCart, removeFromCompare } from '../../redux/products-reducer';
+import { addInCart, addInCompare, removeFromCart, removeFromCompare } from '../../redux/products-reducer';
 
 
 const mapStateToProps = state => {
@@ -18,5 +18,5 @@ const mapStateToProps = state => {
 };
 
 export default compose(
-    connect( mapStateToProps, {changePage, changePageSize, changeSort, addInCompare, removeFromCompare, addInCart, removeFromCart, getProducts} )
+    connect( mapStateToProps, {changePage, changePageSize, changeSort, addInCompare, removeFromCompare, addInCart, removeFromCart} )
 )( ProductsShop );

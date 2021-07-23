@@ -17,7 +17,7 @@ const Product = ( { productDescr, productId, addInCompare, removeFromCompare, ad
     return (
         <div className={ `${s.product}` }>
             <div className={ `${s.imgWrapperGlobal} ${s.imgWrapperHover}` }>
-                <div className={ s.img } style={ { backgroundImage : `url(${productDescr.images[0]})` } }>
+                <div className={ s.img } style={ { backgroundImage : `url(${productDescr.image})` } }>
                     <div className={ s.bg }>
                     </div>
                 </div>

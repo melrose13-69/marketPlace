@@ -10,32 +10,32 @@ import Button from '../common/Button/Button';
 
 const ProductInfo = ( props ) => {
 
-    const [colorIndex, setColorIndex] = useState( 0 );
-    const [waitForSlide, setWaitForSlide] = useState( false );
-    const [colorString, setColorString] = useState( props.productMoreDescription.images[0].colorDescr );
-    const [price, setPrice] = useState( parseInt( props.productShortDescr.price ) );
-    const [productCount, setProductCount] = useState( 1 );
+    const [ colorIndex, setColorIndex ] = useState( 0 );
+    const [ waitForSlide, setWaitForSlide ] = useState( false );
+    const [ colorString, setColorString ] = useState( props.productMoreDescription.images[ 0 ].colorDescr );
+    const [ price, setPrice ] = useState( parseInt( props.productShortDescr.price ) );
+    const [ productCount, setProductCount ] = useState( 1 );
     const slider = React.createRef();
     const loaderSettings = {
-        type : 'TailSpin',
-        color : '#ffffff',
-        height : '20px',
-        width : '20px',
-        timeout : 5000
+        type: 'TailSpin',
+        color: '#ffffff',
+        height: '20px',
+        width: '20px',
+        timeout: 5000
     };
     const sliderSettings = {
-        dots : true,
-        arrow : false,
-        infinite : true,
-        touchMove : false,
-        speed : 500,
-        slidesToShow : 1,
-        slidesToScroll : 1,
-        slideIndex : 0,
-        beforeChange : ( currentSlideIndex, nextSlideIndex ) => {
+        dots: true,
+        arrow: false,
+        infinite: true,
+        touchMove: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        slideIndex: 0,
+        beforeChange: ( currentSlideIndex, nextSlideIndex ) => {
             setColorIndex( nextSlideIndex );
         },
-        afterChange : ( slideIndex ) => {
+        afterChange: ( slideIndex ) => {
             setWaitForSlide( false );
         }
     };
@@ -53,14 +53,14 @@ const ProductInfo = ( props ) => {
     useEffect( () => {
         slider.current.slickGoTo( colorIndex );
         setWaitForSlide( true );
-    }, [colorIndex] );
+    }, [ colorIndex ] );
 
     useEffect( () => {
         setWaitForSlide( false );
     }, [] );
     useEffect( () => {
         setPrice( props.productShortDescr.price * productCount );
-    }, [productCount, props.productShortDescr.price] );
+    }, [ productCount, props.productShortDescr.price ] );
     return (
         <div className={ `${ s.wrapper } section` }>
             <h1>{ props.productShortDescr.name }</h1>
@@ -69,7 +69,7 @@ const ProductInfo = ( props ) => {
                     <Slider { ...sliderSettings } ref={ slider }>
                         {
                             props.productMoreDescription.images.map( ( img, i ) =>
-                                <div key={ i }><img src={ img.img } alt='product'/></div>
+                                <div key={ i }><img className={ s.sliderImage } src={ img.img } alt='product'/></div>
                             )
                         }
                     </Slider>
@@ -90,13 +90,13 @@ const ProductInfo = ( props ) => {
                                     ?
                                     <button key={ imgIndex }
                                             onClick={ () => {changeColor( imgIndex, img.colorDescr );} }
-                                            style={ { background : `${ img.color }` } }>
+                                            style={ { background: `${ img.color }` } }>
                                         <span><DoneOutlineIcon/></span>
                                     </button>
                                     :
                                     <button key={ imgIndex } disabled={ waitForSlide }
                                             onClick={ () => {changeColor( imgIndex, img.colorDescr );} }
-                                            style={ { background : `${ img.color }` } }>
+                                            style={ { background: `${ img.color }` } }>
                                         { waitForSlide === true &&
                                         <span><LoaderComponent loaderSettings={ loaderSettings }/></span>
                                         }
@@ -116,7 +116,7 @@ const ProductInfo = ( props ) => {
                             <span>Memory: </span><span>{ props.productShortDescr.memory }</span>
                         </div>
                         <div className={ s.infoTarget }>
-                            <span>Camera: </span><span>{props. productShortDescr.mainCamera }</span>
+                            <span>Camera: </span><span>{ props.productShortDescr.mainCamera }</span>
                         </div>
                         <div className={ s.infoTarget }>
                             <span>CPU: </span><span>{ props.productShortDescr.cpu }</span>
