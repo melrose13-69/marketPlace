@@ -12,7 +12,7 @@ const ProductReview = props => {
                 </div>
             </div>
             <div className={ s.info }>
-                <div className='product-name'><NavLink to={ '/shop' }>{ props.name }</NavLink></div>
+                <div className='product-name'><NavLink to={ `/product/${props.productId}` }>{ props.name }</NavLink></div>
                 <div className='product-price'>{ props.price }</div>
             </div>
         </div>

@@ -6,10 +6,11 @@ import Gallery from './Gallery/Gallery';
 import PopularItems from './PopularItems/PopularItems';
 
 const MainPage = props => {
+
     return (
         <div className={ s.inner }>
             <Preview/>
-            <Arrivals/>
+            <Arrivals productList={props.productList}/>
             <Gallery/>
             <PopularItems/>
         </div>

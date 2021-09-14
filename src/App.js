@@ -8,7 +8,6 @@ import ProductInfoContainer from './components/ProductInfo/ProductInfoContainer'
 import ControlPanelContainer from './components/ControlPanel/ControlPanelContainer';
 import MainPageContainer from './components/MainPage/MainPageContainer';
 import CompareContainer from './components/Compare/CompareContainer';
-
 import ReactNotification, { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'react-notifications-component/dist/scss/notification.scss';
@@ -40,7 +39,7 @@ const App = props => {
                 <Route path='/basket' render={ () => <CartContainer/> }/>
                 <Route path='/shop' render={ () => <ProductsShopContainer handleNoti={handleNoti}/> }/>
                 <Route path='/product/:productId' render={ () => <ProductInfoContainer/> }/>
-                <Route path='/settings' render={ () => <ControlPanelContainer/> }/>
+                <Route path='/panel' render={ () => <ControlPanelContainer/> }/>
             </main>
             <FooterContainer/>
         </div>

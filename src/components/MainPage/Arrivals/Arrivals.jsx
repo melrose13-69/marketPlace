@@ -13,9 +13,12 @@ const Arrivals = props => {
             <div className='container'>
                 <h1 className='title'>New Arrivals</h1>
                 <div className='products-inner'>
-                    <ProductReview key={props.id} img={Photo1} name={'Iphone 11'} price={'$ 1,050'}/>
-                    <ProductReview key={props.id} img={Photo2} name={'Iphone 12'} price={'$ 1,150'}/>
-                    <ProductReview key={props.id} img={Photo3} name={'Iphone 12pro'} price={'$ 1,380'}/>
+                    {
+                        props.productList.map(product => {
+                            const descr = product.productShortDescr;
+                            return <ProductReview key={product.id} productId={product.id} img={descr.image} name={descr.name} price={descr.price}/>
+                        })
+                    }
                 </div>
             </div>
         </div>
