@@ -4,63 +4,35 @@ import 'slick-carousel/slick/slick-theme.scss';
 import 'slick-carousel/slick/slick.scss';
 import Review from './Review/Review';
 import Button from '../common/Button/Button';
-import { makeStyles } from '@material-ui/core/esm/styles';
-import Modal from '@material-ui/core/esm/Modal/Modal';
-import Backdrop from '@material-ui/core/es/Backdrop/Backdrop';
-import Fade from '@material-ui/core/es/Fade/Fade';
 import ModalReviews from '../common/Modal/ModalReviews/ModalReviews';
 
 
-const useStyles = makeStyles( ( theme ) => ({
-    modal : {
-        display : 'flex',
-        alignItems : 'center',
-        justifyContent : 'center'
-    },
-    paper : {
-        backgroundColor : theme.palette.background.paper,
-        border : '2px solid #000',
-        boxShadow : theme.shadows[5],
-        padding : theme.spacing( 2, 4, 3 )
-    }
-}) );
+const Reviews = ( { averageRating, productReviews, like, dislike, addReview, productId } ) => {
+    const [ modalSettings, setModalSettings ] = useState( { open: false, type: '', reviewId: null } );
 
-const Reviews = ( { averageRating, productReviews, like, dislike, addNewReview, productId } ) => {
-    const classes = useStyles();
-    const [open, setOpen] = useState( false );
 
     const onAddNewReview = formData => {
-        addNewReview(formData);
-        setOpen(false)
+        addReview( formData );
+        setModalSettings( { open: false, type: '', reviewId: null } );
     };
     return (
-        <div className={ `${s.wrapper} section` }>
+        <div className={ `${ s.wrapper } section` }>
             <div className={ s.aside }>
                 <div>
                     <span>Average rating</span>
-                    <span>{ averageRating.toFixed(1) }</span>
+                    <span>{ averageRating.toFixed( 1 ) }</span>
                 </div>
                 <div>
-                    <span onClick={ () => {setOpen( true );} }>
+                    <span onClick={ () => {setModalSettings( { open: true, type: 'new', reviewId: null } );} }>
                         <Button to='empty' text='Add new review'/>
                     </span>
                 </div>
-                <Modal aria-labelledby={ 'transition-modal-title' }
-                       aria-describedby={ 'transition-modal-description' }
-                       className={ classes.modal }
-                       open={ open }
-                       onClose={ () => {setOpen( false );} }
-                       closeAfterTransition
-                       BackdropComponent={ Backdrop }
-                       BackdropProps={ {
-                           timeout : 500
-                       } }>
-                    <Fade in={ open }>
-                        <div className={ classes.paper }>
-                            <ModalReviews onClose={setOpen} onSubmit={onAddNewReview}/>
-                        </div>
-                    </Fade>
-                </Modal>
+                <ModalReviews modalSettings={ modalSettings }
+                              setModalSettings={ setModalSettings }
+                              productId={ productId }
+                              onClose={ setModalSettings }
+                              onSubmit={ onAddNewReview }
+                />
             </div>
             <div className={ s.inner }>
                 {
@@ -75,8 +47,10 @@ const Reviews = ( { averageRating, productReviews, like, dislike, addNewReview, 
                                 likeStatus={ r.likeStatus }
                                 like={ like }
                                 dislike={ dislike }
-                                productId={productId}/>
-                    )
+                                productId={ productId }
+                                setModalSettings={ setModalSettings }
+                        />
+                    ).reverse()
                 }
             </div>
         </div>

@@ -3,7 +3,7 @@ import s from './Review.module.scss';
 import Rating from '@material-ui/lab/Rating';
 
 
-const Review = ( { likes, likeStatus, like, dislike, reviewId, from, rating, answer, text, productId } ) => {
+const Review = ( { likes, likeStatus, like, dislike, reviewId, from, rating, answer, text, productId, setModalSettings } ) => {
     const [ likesLocal, setLikes ] = useState( likes );
     const [ likeLocalStatus, setLikeLocalStatus ] = useState( likeStatus.like );
     const [ dislikeStatus, setDislikeStatus ] = useState( likeStatus.dislike );
@@ -25,6 +25,9 @@ const Review = ( { likes, likeStatus, like, dislike, reviewId, from, rating, ans
             <div className={ s.review }>
                 <div className={ s.header }>
                     <div>{ from }</div>
+                    {
+                        !answer.type && <button onClick={() => {setModalSettings({ open: true, type: 'answer', reviewId })}}><span>Answer</span></button>
+                    }
                     <Rating name='rating-read' defaultValue={ rating } precision={ 1 } readOnly/>
                 </div>
                 <div className={ s.body }>

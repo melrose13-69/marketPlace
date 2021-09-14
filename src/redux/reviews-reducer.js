@@ -1,6 +1,7 @@
 const LIKE = 'LIKE';
 const DISLIKE = 'DISLIKE';
 const ADD_REVIEW = 'ADD_REVIEW';
+const REPLY_REVIEW = 'REPLY_REVIEW';
 
 const initialState = {
     reviewsList: [
@@ -694,6 +695,7 @@ const initialState = {
 };
 
 const reviewsReducer = ( state = initialState, action ) => {
+
     switch ( action.type ) {
         case LIKE:
             return {
@@ -744,41 +746,78 @@ const reviewsReducer = ( state = initialState, action ) => {
         case ADD_REVIEW:
             return {
                 ...state,
-                reviews: [
-                    {
-                        id: state.reviews[ state.reviews.length - 1 ].id + 1,
-                        from: action.data.from,
-                        answer: {
-                            type: false
-                        },
-                        text: action.data.text,
-                        rating: action.data.rating,
-                        likes: 0,
-                        likeStatus: {
-                            like: false,
-                            dislike: false
+                reviewsList: state.reviewsList.map( review => {
+                    return review.id === +action.data.productId
+                        ? {
+                            ...review,
+                            reviews: [
+                                ...review.reviews,
+                                {
+                                    id: review.reviews[ review.reviews.length - 1 ].id + 1,
+                                    from: action.data.from,
+                                    answer: {
+                                        type: false
+                                    },
+                                    text: action.data.text,
+                                    rating: action.data.rating,
+                                    likes: 0,
+                                    likeStatus: {
+                                        like: false,
+                                        dislike: false
+                                    }
+                                }
+                            ]
                         }
-                    },
-                    ...state.reviews
-                ]
+                        : review;
+                } )
+            };
+        case REPLY_REVIEW:
+            return {
+                ...state,
+                reviewsList: state.reviewsList.map( reviews => {
+                    return reviews.id === action.data.productId
+                        ? {
+                            ...reviews,
+                            reviews: reviews.reviews.map( review => {
+                                return review.id === action.data.reviewId
+                                    ? {
+                                        ...review,
+                                        answer: {
+                                            ...review.answer,
+                                            type: true,
+                                            from: action.data.from,
+                                            text: action.data.text
+                                        },
+                                    }
+                                    : review;
+                            } )
+                        }
+                        : reviews;
+                } ),
             };
         default:
             return state;
     }
 };
 
-const likeAC = (reviewId, productId) => ({ type: LIKE, reviewId, productId });
-const dislikeAC = (reviewId, productId) => ({ type: DISLIKE, reviewId, productId });
+const likeAC = ( reviewId, productId ) => ({ type: LIKE, reviewId, productId });
+const dislikeAC = ( reviewId, productId ) => ({ type: DISLIKE, reviewId, productId });
 const addNewReviewAC = data => ({ type: ADD_REVIEW, data });
+const replyToReviewAC = data => ({ type: REPLY_REVIEW, data });
 
-export const like = (reviewId, productId) => dispatch => {
+export const like = ( reviewId, productId ) => dispatch => {
     dispatch( likeAC( reviewId, productId ) );
 };
-export const dislike = (reviewId, productId) => dispatch => {
+export const dislike = ( reviewId, productId ) => dispatch => {
     dispatch( dislikeAC( reviewId, productId ) );
 };
-export const addNewReview = data => dispatch => {
-    dispatch( addNewReviewAC( data ) );
+export const addReview = data => dispatch => {
+    if ( data.type === 'new' ) {
+        dispatch( addNewReviewAC( data ) );
+    }
+    if ( data.type === 'answer' ) {
+        dispatch( replyToReviewAC( data ) );
+    }
 };
 
 

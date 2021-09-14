@@ -2,12 +2,12 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Reviews from './Reviews';
-import { addNewReview, dislike, like } from '../../redux/reviews-reducer';
+import { addReview, dislike, like } from '../../redux/reviews-reducer';
 import { requestToLS } from '../../api/localstorageRequest/requestToLS';
 import { useParams } from 'react-router-dom';
 
 
-const ReviewsContainer = ( { reviews, like, dislike, addNewReview } ) => {
+const ReviewsContainer = ( { reviews, like, dislike, addReview } ) => {
     const { productId } = useParams();
     const reviewForProduct = reviews.filter( r => r.id === parseInt( productId ) )[ 0 ];
     const averageRating = reviewForProduct.reviews
@@ -17,9 +17,10 @@ const ReviewsContainer = ( { reviews, like, dislike, addNewReview } ) => {
     if ( requestToLS.getItemFromLocalStorage( 'reviews' ) === null ) {
         requestToLS.postItemFromLocalStorage( 'reviews', reviews );
     }
+
     return (
         <Reviews productId={ productId }
-                 addNewReview={ addNewReview }
+                 addReview={ addReview }
                  averageRating={ averageRating }
                  productReviews={ reviewForProduct }
                  dislike={ dislike }
@@ -28,12 +29,11 @@ const ReviewsContainer = ( { reviews, like, dislike, addNewReview } ) => {
 };
 
 const mapStateToProps = state => {
-
     return {
         reviews: state.reviews.reviewsList
     };
 };
 
 export default compose(
-    connect( mapStateToProps, { like, dislike, addNewReview } )
+    connect( mapStateToProps, { like, dislike, addReview } )
 )( ReviewsContainer );
