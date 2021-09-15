@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/marketPlace/static/css/main.a541347e.chunk.css",
-    "main.js": "/marketPlace/static/js/main.bca1ab1b.chunk.js",
-    "main.js.map": "/marketPlace/static/js/main.bca1ab1b.chunk.js.map",
+    "main.css": "/marketPlace/static/css/main.7769b2bf.chunk.css",
+    "main.js": "/marketPlace/static/js/main.53ddea0b.chunk.js",
+    "main.js.map": "/marketPlace/static/js/main.53ddea0b.chunk.js.map",
     "runtime-main.js": "/marketPlace/static/js/runtime-main.a29c1672.js",
     "runtime-main.js.map": "/marketPlace/static/js/runtime-main.a29c1672.js.map",
     "static/css/2.edc56225.chunk.css": "/marketPlace/static/css/2.edc56225.chunk.css",
-    "static/js/2.70346cc1.chunk.js": "/marketPlace/static/js/2.70346cc1.chunk.js",
-    "static/js/2.70346cc1.chunk.js.map": "/marketPlace/static/js/2.70346cc1.chunk.js.map",
+    "static/js/2.564df045.chunk.js": "/marketPlace/static/js/2.564df045.chunk.js",
+    "static/js/2.564df045.chunk.js.map": "/marketPlace/static/js/2.564df045.chunk.js.map",
     "static/js/3.213ecc27.chunk.js": "/marketPlace/static/js/3.213ecc27.chunk.js",
     "static/js/3.213ecc27.chunk.js.map": "/marketPlace/static/js/3.213ecc27.chunk.js.map",
     "index.html": "/marketPlace/index.html",
     "static/css/2.edc56225.chunk.css.map": "/marketPlace/static/css/2.edc56225.chunk.css.map",
-    "static/css/main.a541347e.chunk.css.map": "/marketPlace/static/css/main.a541347e.chunk.css.map",
-    "static/js/2.70346cc1.chunk.js.LICENSE.txt": "/marketPlace/static/js/2.70346cc1.chunk.js.LICENSE.txt",
+    "static/css/main.7769b2bf.chunk.css.map": "/marketPlace/static/css/main.7769b2bf.chunk.css.map",
+    "static/js/2.564df045.chunk.js.LICENSE.txt": "/marketPlace/static/js/2.564df045.chunk.js.LICENSE.txt",
     "static/media/Product.module.scss": "/marketPlace/static/media/bgProduct-2.329e8455.jpg",
     "static/media/Gallery.module.scss": "/marketPlace/static/media/gallery-4.92eec87d.jpg",
     "static/media/popular-items.2df28e4d.jpg": "/marketPlace/static/media/popular-items.2df28e4d.jpg",
@@ -23,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.a29c1672.js",
     "static/css/2.edc56225.chunk.css",
-    "static/js/2.70346cc1.chunk.js",
-    "static/css/main.a541347e.chunk.css",
-    "static/js/main.bca1ab1b.chunk.js"
+    "static/js/2.564df045.chunk.js",
+    "static/css/main.7769b2bf.chunk.css",
+    "static/js/main.53ddea0b.chunk.js"
   ]
 }
