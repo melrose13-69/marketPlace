@@ -9,7 +9,6 @@ const ProductsShop = ( {
                            productsList, compareError, pageControls, changePageSize, changePage, totalProducts,
                            changeSort, addInCompare, removeFromCompare, addInCart, removeFromCart, handleNoti
                        } ) => {
-
     useEffect( () => {
         const productsCount = () => {
             switch ( pageControls.currentSortStatus ) {

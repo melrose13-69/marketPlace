@@ -51,7 +51,7 @@ const Product = ( { productDescr, productId, addInCompare, removeFromCompare, ad
             </div>
             <div className={ s.info }>
                 <div className={ s.infoTarget }>
-                    <div className='product-name'>
+                    <div className={`product-name ${s.productName}`}>
                         <NavLink to={ `/product/${productId}` }>{ productDescr.name }</NavLink>
                     </div>
                     <div className={ `${s.price} product-price` }>{ `$ ${productDescr.price}` }</div>
@@ -60,13 +60,13 @@ const Product = ( { productDescr, productId, addInCompare, removeFromCompare, ad
                     <span>Display diagonal: </span><span>{ productDescr.diagonal }</span>
                 </div>
                 <div className={ s.infoTarget }>
-                    <span>RAM: </span><span>{ productDescr.ram }</span>
+                    <span>RAM: </span><span>{ productDescr.ram }gb</span>
                 </div>
                 <div className={ s.infoTarget }>
-                    <span>Memory: </span><span>{ productDescr.memory }</span>
+                    <span>Memory: </span><span>{ productDescr.memory }gb</span>
                 </div>
                 <div className={ s.infoTarget }>
-                    <span>Camera: </span><span>{ productDescr.mainCamera }</span>
+                    <span>Camera: </span><span>{ productDescr.mainCamera }mp</span>
                 </div>
                 <div className={ s.infoTarget }>
                     <span>CPU: </span><span>{ productDescr.cpu }</span>

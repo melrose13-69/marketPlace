@@ -9,7 +9,6 @@ import Button from '../common/Button/Button';
 
 
 const ProductInfo = ( props ) => {
-
     const [ colorIndex, setColorIndex ] = useState( 0 );
     const [ waitForSlide, setWaitForSlide ] = useState( false );
     const [ colorString, setColorString ] = useState( props.productMoreDescription.images[ 0 ].colorDescr );

@@ -1,0 +1,14 @@
+.formWrapper {
+  max-width: 300px;
+  width: 100%;
+}
+.formWrapper input {
+  max-width: 300px;
+  width: 100%;
+}
+
+.formLine {
+  margin-bottom: 10px;
+}
+
+/*# sourceMappingURL=ControlPanel.module.css.map */

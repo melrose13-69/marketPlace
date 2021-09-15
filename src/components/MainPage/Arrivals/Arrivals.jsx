@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './Arrivals.module.scss';
-import Photo1 from '../../../assets/img/product/iphone-11.png';
-import Photo2 from '../../../assets/img/product/iphone-12.png';
-import Photo3 from '../../../assets/img/product/iphone-12-pro.png';
+// import Photo1 from '../../../assets/img/product/iphone-11.png';
+// import Photo2 from '../../../assets/img/product/iphone-12.png';
+// import Photo3 from '../../../assets/img/product/iphone-12-pro.png';
 import ProductReview from '../../Products/Product/ProductReview/ProductReview';
 
 

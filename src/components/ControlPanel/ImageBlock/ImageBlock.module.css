@@ -1,0 +1,14 @@
+.imageBlock {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.formLine {
+  margin-bottom: 10px;
+}
+.formLine input[type=color] {
+  padding: 0;
+}
+
+/*# sourceMappingURL=ImageBlock.module.css.map */

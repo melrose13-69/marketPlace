@@ -1,4 +1,6 @@
 import { requestToLS } from '../api/localstorageRequest/requestToLS';
+import { addReviewDataFromNewProduct } from './reviews-reducer';
+import { newIdForProduct } from '../components/utils/helpers/helper';
 
 
 const ADD_NEW_PRODUCT = 'ADD_NEW_PRODUCT';
@@ -54,8 +56,8 @@ const initialState = {
                 name: 'Iphone 11 Pro Max',
                 price: 1400,
                 diagonal: 6.5,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A13 Bionic',
                 isCompare: false,
@@ -92,8 +94,8 @@ const initialState = {
                 name: 'Iphone 11',
                 price: 899,
                 diagonal: 6.1,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A13',
                 isCompare: false,
@@ -142,8 +144,8 @@ const initialState = {
                 name: 'Iphone SE',
                 price: 600,
                 diagonal: 4.7,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A13',
                 isCompare: false,
@@ -177,8 +179,8 @@ const initialState = {
                 name: 'Iphone 12 Pro Max',
                 price: 1600,
                 diagonal: 6.7,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A14 Bionic',
                 isCompare: false,
@@ -215,8 +217,8 @@ const initialState = {
                 name: 'Iphone 12 Pro',
                 price: 1499,
                 diagonal: 6.1,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A14 Bionic',
                 isCompare: false,
@@ -253,8 +255,8 @@ const initialState = {
                 name: 'Iphone 12',
                 price: 1350,
                 diagonal: 6.1,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A14 Bionic',
                 isCompare: false,
@@ -303,8 +305,8 @@ const initialState = {
                 name: 'Iphone 12 mini',
                 price: 1250,
                 diagonal: 5.4,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A14',
                 isCompare: false,
@@ -353,8 +355,8 @@ const initialState = {
                 name: 'Iphone XS Max',
                 price: 999,
                 diagonal: 6.5,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A12 Bionic',
                 isCompare: false,
@@ -388,8 +390,8 @@ const initialState = {
                 name: 'Iphone XS',
                 price: 899,
                 diagonal: 5.8,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A12 Bionic',
                 isCompare: false,
@@ -423,8 +425,8 @@ const initialState = {
                 name: 'Iphone XR',
                 price: 799,
                 diagonal: 6.1,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A12 Bionic',
                 isCompare: false,
@@ -474,8 +476,8 @@ const initialState = {
                 name: 'Iphone X',
                 price: 579,
                 diagonal: 5.8,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A11 Bionic',
                 isCompare: false,
@@ -504,8 +506,8 @@ const initialState = {
                 name: 'Iphone 8 Plus',
                 price: 499,
                 diagonal: 5.5,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A11 Bionic',
                 isCompare: false,
@@ -540,8 +542,8 @@ const initialState = {
                 name: 'Iphone 8',
                 price: 499,
                 diagonal: 4.7,
-                ram: '12gb',
-                memory: '128gb',
+                ram: 12,
+                memory: 128,
                 mainCamera: 12,
                 cpu: 'A11 Bionic',
                 isCompare: false,
@@ -580,33 +582,41 @@ const initialState = {
     cartProductsCount: 0,
     selectedProduct: 0
 };
-const productsReducer = ( state = initialState, action ) => {
 
+newIdForProduct( initialState.productsList );
+const productsReducer = ( state = initialState, action ) => {
+    const actionData = action.data;
     switch ( action.type ) {
         case ADD_NEW_PRODUCT:
             return {
                 ...state,
-                productsList: [ ...state.productsList, {
-                    id: 2,
-                    productShortDescr: {
-                        image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-graphite-hero?wid=470&hei=556&fmt=png-alpha&.v=1604021660000',
-                        name: 'Iphone 11',
-                        price: 1000,
-                        diagonal: action.data.productDiagonal,
-                        ram: action.data.productRam,
-                        memory: action.data.productMemory,
-                        mainCamera: action.data.productCamera,
-                        cpu: action.data.productCPU,
-                        additionDate: {
-                            date: 1,
-                            month: 2,
-                            year: 2021
+                productsList: [
+                    ...state.productsList,
+                    {
+                        id: newIdForProduct(state.productsList) + 1,
+                        productShortDescr: {
+                            image: actionData.productMainImage,
+                            name: actionData.productName,
+                            price: +actionData.productPrice,
+                            diagonal: actionData.productDiagonal,
+                            ram: actionData.productRam,
+                            memory: actionData.productMemory,
+                            mainCamera: actionData.productCamera,
+                            cpu: actionData.productCPU,
+                            isCompare: false,
+                            isInCart: false
                         },
-                        isCompare: false,
-                        isInCart: false
+                        productMoreDescription: {
+                            images: actionData.images.map( image => ({
+                                img: image.link,
+                                color: image.color,
+                                colorDescr: image.descr
+                            }) ),
+
+                            description: actionData.productDescr
+                        }
                     },
-                    productMoreDescription: {}
-                } ]
+                ]
             };
         case ADD_IN_COMPARE:
             return {
@@ -699,7 +709,9 @@ const removeFromCartAC = id => ({ type: REMOVE_FROM_CART, id });
 
 
 export const addNewProduct = data => dispatch => {
+    const newIf = newIdForProduct(initialState.productsList) + 1;
     dispatch( addNewProductAC( data ) );
+    addReviewDataFromNewProduct(newIf);
 };
 export const addInCompare = productId => dispatch => {
     dispatch( addInCompareAC( productId ) );

@@ -2,6 +2,7 @@ const LIKE = 'LIKE';
 const DISLIKE = 'DISLIKE';
 const ADD_REVIEW = 'ADD_REVIEW';
 const REPLY_REVIEW = 'REPLY_REVIEW';
+const ADD_REVIEW_FOR_NEW_PRODUCT = 'ADD_REVIEW_FOR_NEW_PRODUCT';
 
 const initialState = {
     reviewsList: [
@@ -795,6 +796,17 @@ const reviewsReducer = ( state = initialState, action ) => {
                         : reviews;
                 } ),
             };
+        case ADD_REVIEW_FOR_NEW_PRODUCT:
+            return {
+                ...state,
+                reviewsList: [
+                    ...state.reviewsList,
+                    {
+                        id: action.productId,
+                        reviews: []
+                    },
+                ]
+            };
         default:
             return state;
     }
@@ -804,7 +816,10 @@ const likeAC = ( reviewId, productId ) => ({ type: LIKE, reviewId, productId });
 const dislikeAC = ( reviewId, productId ) => ({ type: DISLIKE, reviewId, productId });
 const addNewReviewAC = data => ({ type: ADD_REVIEW, data });
 const replyToReviewAC = data => ({ type: REPLY_REVIEW, data });
-
+const addReviewDataFromNewProductAC = productId => ({type: ADD_REVIEW_FOR_NEW_PRODUCT, productId})
+export const addReviewDataFromNewProduct = productId => dispatch => {
+      dispatch(addReviewDataFromNewProductAC(productId))
+};
 export const like = ( reviewId, productId ) => dispatch => {
     dispatch( likeAC( reviewId, productId ) );
 };

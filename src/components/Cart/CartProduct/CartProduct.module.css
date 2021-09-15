@@ -1,55 +1,57 @@
-@import '../../../assets/styles/mixinsAndVariables';
 .imgWrapper {
-  max-width: rem(150);
+  max-width: 9.375rem;
   width: 100%;
-  min-height: rem(150);
+  min-height: 9.375rem;
 }
+
 .img {
-  height:100%;
+  height: 100%;
   width: 100%;
   background-size: contain;
   background-repeat: no-repeat;
-  transition: transform .7s ease-in-out;
+  transition: transform 0.7s ease-in-out;
 }
 
 .info {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding-right: rem(50);
+  padding-right: 3.125rem;
 }
-.productName  {
-  margin: 0 rem(10) 0 0 !important;
-  font-size: rem(30);
+
+.productName {
+  margin: 0 0.625rem 0 0 !important;
+  font-size: 1.875rem;
 }
+
 .infoTarget {
   display: flex;
   align-items: center;
-  &.processorName {
-
-  }
 }
 .price {
   display: flex;
   align-items: center;
-  font-size: rem(30);
+  font-size: 1.875rem;
 }
+
 .product {
-  margin: rem(20) 0;
-  border: rem(1) solid #f2f2f2;
+  margin: 1.25rem 0;
+  border: 0.0625rem solid #f2f2f2;
   position: relative;
   display: flex;
 }
 
 .removeFromCart {
   position: absolute;
-  right: rem(10);
+  right: 0.625rem;
   top: 50%;
   transform: translate(0, -50%);
   cursor: pointer;
-  transition: all .4s;
-  &:hover {
-    color: $red;
-    transition: all .4s;
-  }
+  transition: all 0.4s;
 }
+.removeFromCart:hover {
+  color: #FF2020;
+  transition: all 0.4s;
+}
+
+/*# sourceMappingURL=CartProduct.module.css.map */

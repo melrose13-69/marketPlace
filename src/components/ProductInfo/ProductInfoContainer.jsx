@@ -11,7 +11,6 @@ const ProductInfoContainer = ( { selectedProduct, addInCart, removeFromCart } ) 
     const { productId } = useParams();
     const productInfo = selectedProduct.filter( p => p.id === parseInt( productId ) )[0];
 
-
     return (
         <div className='container'>
             <ProductInfo { ...productInfo } addInCart={ addInCart } removeFromCart={ removeFromCart }/>

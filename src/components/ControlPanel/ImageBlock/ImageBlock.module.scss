@@ -1,0 +1,12 @@
+.imageBlock {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.formLine {
+  margin-bottom: 10px;
+  input[type='color'] {
+    padding: 0;
+  }
+}

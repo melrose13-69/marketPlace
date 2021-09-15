@@ -66,11 +66,14 @@
   text-align: center;
   padding: rem(20);
 }
-
+.productName {
+  margin: 0 !important;
+}
 .infoTarget {
   display: flex;
   justify-content: space-between;
   margin: rem(5) 0;
+  align-items: center;
 }
 .price {
   font-size: rem(25);

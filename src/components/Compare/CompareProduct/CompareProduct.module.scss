@@ -1,16 +1,25 @@
 @import '../../../assets/styles/mixinsAndVariables';
+.product {
+  margin: 0 rem(10);
+  border: 1px solid #f2f2f2;
+  padding: rem(20) rem(10);
+  position: relative;
+  flex: 0 0 19%;
+  max-width: 19%;
+}
 
 .img {
   min-height: 250px;
   max-width: 250px;
   width: 100%;
-  background-size: contain;
   background-repeat: no-repeat;
   transition: transform .7s ease-in-out;
+  background-size: cover;
 }
 
 .info {
   text-align: center;
+  padding: rem(10) 0;
 }
 
 .infoTarget {
@@ -18,19 +27,22 @@
   &.processorName {
 
   }
+  &.priceName {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    * {
+      margin: 0 !important;
+      font-size: 16px;
+    }
+  }
 }
 
-.product {
-  margin: 0 rem(10);
-  border: 1px solid #f2f2f2;
-  padding: rem(10);
-  position: relative;
-}
 
 .removeFromCompare {
   position: absolute;
-  right: rem(10);
-  top: rem(10);
+  right: rem(3);
+  top: rem(3);
   cursor: pointer;
   transition: all .4s;
   &:hover {

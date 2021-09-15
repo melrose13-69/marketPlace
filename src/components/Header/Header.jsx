@@ -10,13 +10,13 @@ const Header = props => {
             <div className='container'>
                 <div className={s.inner}>
                     <div className={s.logo}>
-                        <NavLink to={'/main'}><span>My</span><span>Logo</span></NavLink>
+                        <NavLink exact to={ '/' }><span>My</span><span>Logo</span></NavLink>
                     </div>
                     <div className={s.nav}>
                         <ul className={s.list}>
-                            <li><NavLink to={ '/main' } activeClassName={s.selected}>Main</NavLink></li>
+                            <li><NavLink exact to={ '/' } activeClassName={s.selected}>Main</NavLink></li>
                             <li><NavLink to={ '/shop' } activeClassName={s.selected}>Shop</NavLink></li>
-                            <li><NavLink to={ '/panel' } activeClassName={s.selected}>Control panel</NavLink></li>
+                            {/*<li><NavLink to={ '/panel' } activeClassName={s.selected}>Control panel</NavLink></li>*/}
                         </ul>
                         <ul className={s.controls}>
                             <li>

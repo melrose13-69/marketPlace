@@ -15,13 +15,13 @@ import CartContainer from './components/Cart/CartContainer';
 
 
 const App = props => {
-    const handleNoti = (title, message, type) => {
+    const handleNoti = ( title, message, type ) => {
         store.addNotification( {
-            title : title,
-            message : message,
-            type : type,
-            container : 'top-right',
-            insert : 'top',
+            title: title,
+            message: message,
+            type: type,
+            container: 'top-right',
+            insert: 'top',
             slidingExit: {
                 duration: 800,
                 timingFunction: 'ease-out',
@@ -34,12 +34,13 @@ const App = props => {
             <HeaderContainer/>
             <ReactNotification/>
             <main>
-                <Route path='/main' render={ () => <MainPageContainer/> }/>
+                <Route exact path={ '/' } render={ () => <MainPageContainer/> }/>
                 <Route path='/compare' render={ () => <CompareContainer/> }/>
                 <Route path='/basket' render={ () => <CartContainer/> }/>
-                <Route path='/shop' render={ () => <ProductsShopContainer handleNoti={handleNoti}/> }/>
+                <Route path={ '/shop' }
+                       render={ () => <ProductsShopContainer handleNoti={ handleNoti }/> }/>
                 <Route path='/product/:productId' render={ () => <ProductInfoContainer/> }/>
-                <Route path='/panel' render={ () => <ControlPanelContainer/> }/>
+                {/*<Route path='/panel' render={ () => <ControlPanelContainer/> }/>*/ }
             </main>
             <FooterContainer/>
         </div>

@@ -63,10 +63,15 @@
   padding: 1.25rem;
 }
 
+.productName {
+  margin: 0 !important;
+}
+
 .infoTarget {
   display: flex;
   justify-content: space-between;
   margin: 0.3125rem 0;
+  align-items: center;
 }
 
 .price {

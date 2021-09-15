@@ -6,13 +6,10 @@ import { addNewProduct } from '../../redux/products-reducer';
 
 const mapStateToProps = ( state ) => {
     return {
-        product : state.products.productsList,
-        onSubmit : onSubmit
+
     };
 };
-const onSubmit = formData => {
-    addNewProduct(formData);
-};
+
 export default compose(
     connect( mapStateToProps, { addNewProduct } )
 )( ControlPanel );

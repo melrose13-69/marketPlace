@@ -9,7 +9,7 @@ const CompareProduct = ( {productInfo, removeFromCart, productId} ) => {
         <div className={ `${s.product}` }>
             <div className={s.imgWrapper}>
                 <span onClick={() => {removeFromCart(productId)}} className={s.removeFromCart}><CloseOutlinedIcon /></span>
-                <div className={ s.img } style={ { backgroundImage : `url(${productInfo.images[0]})` } }>
+                <div className={ s.img } style={ { backgroundImage : `url(${productInfo.image})` } }>
                     <div className={ s.bg }>
                     </div>
                 </div>
@@ -19,7 +19,7 @@ const CompareProduct = ( {productInfo, removeFromCart, productId} ) => {
                     <div className={`${s.productName} product-name`}>
                         <NavLink to={'/info'}>{productInfo.name}</NavLink>
                     </div>
-                    <div className={ s.infoTarget }>{ productInfo.memory }</div>
+                    <div className={ s.infoTarget }>{ productInfo.memory }gb</div>
                 </div>
                 <div className={ `${s.price} product-price` }>{`$ ${productInfo.price}`}</div>
             </div>

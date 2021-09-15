@@ -1,0 +1,28 @@
+.marketWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+.marketWrapper header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  box-shadow: 0 0.625rem 0.9375rem rgba(25, 25, 25, 0.1);
+  background: #FFF;
+  z-index: 999;
+}
+.marketWrapper main {
+  flex: 1;
+  padding-top: 5rem;
+}
+
+.global-title {
+  font-size: 1.875rem;
+  text-align: center;
+  margin: 1.25rem 0;
+}
+
+/*# sourceMappingURL=App.css.map */

@@ -9,13 +9,13 @@ const CompareProduct = ( {productInfo, removeFromCompare, productId} ) => {
         <div className={ `${s.product}` }>
             <div>
                 <span onClick={() => {removeFromCompare(productId)}} className={s.removeFromCompare}><CloseOutlinedIcon /></span>
-                <div className={ s.img } style={ { backgroundImage : `url(${productInfo.images[0]})` } }>
+                <div className={ s.img } style={ { backgroundImage : `url(${productInfo.image})` } }>
                     <div className={ s.bg }>
                     </div>
                 </div>
             </div>
             <div className={ s.info }>
-                <div className={ s.infoTarget }>
+                <div className={ `${s.infoTarget} ${s.priceName}` }>
                     <div className='product-name'>
                         <NavLink to={'/info'}>{productInfo.name}</NavLink>
                     </div>
